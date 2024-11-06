@@ -17,7 +17,7 @@ const Hiring = () => {
                             HIRING
                         </span>
                     </div>
-                    <span className="flex  justify-start items-start text-2xl  md:text-[60px] font-medium  text-[#000] text-left ">
+                    <span className="flex  justify-start items-start text-2xl leading-[60px]  md:text-[60px] font-medium  text-[#000] text-left ">
                         Your Premium HR Solution
                     </span>
                     <span className="flex  justify-start items-start w-80 lg:w-full  text-md   text-[#595959]   text-left">

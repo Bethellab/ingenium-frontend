@@ -15,7 +15,7 @@ const Elearning = () => {
                             E-learning
                         </span>
                     </div>
-                    <span className="flex  justify-start items-start text-2xl md:text-[60px] font-medium  text-[#000] text-left ">
+                    <span className="flex  justify-start items-start leading-[60px] text-2xl md:text-[60px] font-medium  text-[#000] text-left ">
                         Advance Your  Knowledge
                     </span>
                     <span className="flex  justify-start items-start w-80 lg:w-full  text-md   text-[#595959]   text-left">
