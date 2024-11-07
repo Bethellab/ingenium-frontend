@@ -3,7 +3,7 @@ import { image } from "@/assets/image/image"
 
 const ContentMgmt = () => {
     return (
-        <div className=' flex lg:w-[1223px] gap-[79px] items-center  lg:relative mx-4 md:mx-auto mt-8  lg:mt-32'>
+        <div className=' flex lg:w-[1223px] gap-[79px] items-center  lg:relative md:mx-auto mt-12  lg:mt-32'>
             <div className='w-[514px] h-[779px] shrink-0 hidden lg:block '>
                <img src={image.hiring_img} className="rounded-lg h-[700px]"  />
             </div>
@@ -26,7 +26,7 @@ const ContentMgmt = () => {
                 </div>
                 <div className='flex flex-col gap-10 items-start mt-8'>
                     <div className='flex gap-3 md:gap-4 md:items-start '>
-                        <img src={image.bag_icon} className="w-10 md:w-16" />
+                        <img src={image.library_icon}  className="w-10 h-10 md:w-16 md:h-16" />
                         <div className='flex flex-col gap-1  items-start'>
                             <span className="text-lg  md:text-[24px] font-bold text-[#262626] text-left md:whitespace-nowrap ">
                             Centralized Library
@@ -38,7 +38,7 @@ const ContentMgmt = () => {
                     </div>
 
                     <div className='flex gap-3 md:gap-4 md:items-start '>
-                        <img src={image.person_box_icon} className="w-10 md:w-16" />
+                        <img src={image.content_icon}  className="w-10 h-10 md:w-16 md:h-16" />
                         <div className='flex flex-col gap-1 items-start'>
                             <span className="text-lg  md:text-[24px] font-bold text-[#262626] text-left md:whitespace-nowrap ">
                             Content Creation & Review
@@ -50,7 +50,7 @@ const ContentMgmt = () => {
                     </div>
 
                     <div className='flex gap-3 md:gap-4 md:items-start '>
-                        <img src={image.calendar_icon} className="w-10 md:w-16" />
+                        <img src={image.user_access_icon}  className="w-10 h-10 md:w-16 md:h-16" />
                         <div className='flex flex-col gap-1 items-start'>
                             <span className="text-lg  md:text-[24px] font-bold text-[#262626] text-left md:whitespace-nowrap ">
                             User Access Control
@@ -61,10 +61,7 @@ const ContentMgmt = () => {
                         </div>
                     </div>
 
-                    
-                
-
-                   
+                         
                    
                    
                 </div>

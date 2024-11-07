@@ -3,7 +3,7 @@ import { image } from "@/assets/image/image"
 
 const Hiring = () => {
     return (
-        <div className=' flex lg:w-[1223px] gap-[79px] items-center  lg:relative mx-4 md:mx-auto mt-8  lg:mt-24'>
+        <div className=' flex lg:w-[1223px] gap-[79px] items-center  lg:relative  md:mx-auto mt-8  lg:mt-24'>
             <div className='w-[514px] h-[779px] shrink-0 hidden lg:block '>
                <img src={image.hiring_img} className="rounded-lg" />
             </div>
@@ -28,7 +28,7 @@ const Hiring = () => {
                 </div>
                 <div className='flex flex-col gap-10 items-start mt-8'>
                     <div className='flex gap-3 md:gap-4 md:items-start '>
-                        <img src={image.bag_icon} className="w-10 md:w-16" />
+                        <img src={image.bag_icon} className="w-10 h-10 md:w-16 md:h-16" />
                         <div className='flex flex-col gap-1  items-start'>
                             <span className="text-lg  md:text-[24px] font-bold text-[#262626] text-left md:whitespace-nowrap ">
                                 Job Posting & Role Specification
@@ -40,7 +40,7 @@ const Hiring = () => {
                     </div>
 
                     <div className='flex gap-3 md:gap-4 md:items-start '>
-                        <img src={image.person_box_icon} className="w-10 md:w-16" />
+                        <img src={image.person_box_icon} className="w-10 h-10 md:w-16 md:h-16" />
                         <div className='flex flex-col gap-1 items-start'>
                             <span className="text-lg  md:text-[24px] font-bold text-[#262626] text-left md:whitespace-nowrap ">
                             Candidate Application Management
@@ -52,7 +52,7 @@ const Hiring = () => {
                     </div>
 
                     <div className='flex gap-3 md:gap-4 md:items-start '>
-                        <img src={image.calendar_icon} className="w-10 md:w-16" />
+                        <img src={image.calendar_icon} className="w-10 h-10 md:w-16 md:h-16" />
                         <div className='flex flex-col gap-1 items-start'>
                             <span className="text-lg  md:text-[24px] font-bold text-[#262626] text-left md:whitespace-nowrap ">
                             Interview Management
@@ -64,7 +64,7 @@ const Hiring = () => {
                     </div>
 
                     <div className='flex gap-3 md:gap-4 md:items-start '>
-                        <img src={image.graph_icon} className="w-10 md:w-16" />
+                        <img src={image.graph_icon} className="w-10 h-10 md:w-16 md:h-16" />
                         <div className='flex flex-col gap-1 items-start'>
                             <span className="text-lg  md:text-[24px] font-bold text-[#262626] text-left md:whitespace-nowrap ">
                             Analytics & Reporting

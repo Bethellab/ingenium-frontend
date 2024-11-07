@@ -3,7 +3,7 @@ import { image } from "@/assets/image/image"
 
 const Elearning = () => {
     return (
-        <div className=' flex lg:w-[1223px] gap-[79px] items-center  lg:relative mx-4 md:mx-auto mt-8 lg:mt-32'>
+        <div className=' flex lg:w-[1223px] gap-[79px] items-center  lg:relative  md:mx-auto mt-10 lg:mt-32'>
 
             <div className='flex flex-col gap-4 items-start mx-4 '>
                 <div className='flex flex-col gap-2 items-start '>
@@ -24,7 +24,7 @@ const Elearning = () => {
                 </div>
                 <div className='flex flex-col gap-10 items-start mt-8 '>
                     <div className='flex gap-3 md:gap-4 md:items-start '>
-                        <img src={image.bag_icon} className="w-10 md:w-16" />
+                        <img src={image.video_icon} className="w-10 h-10 md:w-16 md:h-16" />
                         <div className='flex flex-col gap-1 items-start'>
                             <span className="text-lg  md:text-[24px] font-bold text-[#262626] text-left md:whitespace-nowrap ">
                             Course Creation
@@ -36,7 +36,7 @@ const Elearning = () => {
                     </div>
 
                     <div className='flex gap-3 md:gap-4 md:items-start '>
-                        <img src={image.person_box_icon} className="w-10 md:w-16" />
+                        <img src={image.progress_icon}  className="w-10 h-10 md:w-16 md:h-16" />
                         <div className='flex flex-col gap-1 items-start'>
                             <span className="text-lg  md:text-[24px] font-bold text-[#262626] text-left md:whitespace-nowrap ">
                             Progress Tracking
@@ -48,7 +48,7 @@ const Elearning = () => {
                     </div>
 
                     <div className='flex gap-3 md:gap-4 md:items-start '>
-                        <img src={image.calendar_icon} className="w-10 md:w-16" />
+                        <img src={image.cert_icon}  className="w-10 h-10 md:w-16 md:h-16" />
                         <div className='flex flex-col gap-1  items-start'>
                             <span className="text-lg  md:text-[24px] font-bold text-[#262626] text-left md:whitespace-nowrap ">
                             Assessment & Certification
@@ -60,7 +60,7 @@ const Elearning = () => {
                     </div>
 
                     <div className='flex gap-3 md:gap-4 md:items-start '>
-                        <img src={image.graph_icon} className="w-10 md:w-16" />
+                        <img src={image.interactive_icon}  className="w-10 h-10 md:w-16 md:h-16" />
                         <div className='flex flex-col gap-1 items-start'>
                             <span className="text-lg  md:text-[24px] font-bold text-[#262626] text-left md:whitespace-nowrap ">
                             Interactive Learning
