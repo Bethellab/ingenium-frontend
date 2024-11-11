@@ -28,8 +28,8 @@ const Footer = () => {
         <p className="mt-10 text-base font-medium text-stone-50 max-md:max-w-full">© Ingenium Concept 2023. All Rights Reserved.</p>
         <p className="mt-10 text-md tracking-normal leading-5 text-zinc-100 max-md:max-w-full">Lorem ipsum dolor sit amet consectetur. Purus parturient sed at eget lectus accumsan. Arcu nibh neque venenatis a libero nunc vel rhoncus. Mattis vel semper quam viverra nulla. Euismod pulvinar fermentum integer eu. Platea dictum posuere est cras proin ut malesuada. Egestas dui diam iaculis nunc lorem. Id et tellus lobortis bibendum congue.Lacus lacus mattis eget tellus amet massa nisl erat quis. Placerat nibh lacinia ullamcorper mattis tristique id mi feugiat. Arcu est id fermentum arcu nunc venenatis pulvinar eget. </p>
       </div>
-      <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/9d334a421dc12e82e076718bea10286be8023089967554b9d4bc6d40c967f7d3?placeholderIfAbsent=true&apiKey=5e5f7185f1fc4414936991ff9a3c3ed7" alt="" className="object-contain z-0 mt-4 w-full aspect-[6.41] max-md:mt-2 max-md:max-w-full" />
-      <div className="flex absolute  right-0 bottom-0 z-0 h-[141px] min-h-[141px] w-[1440px] max-md:max-w-full" />
+      <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/9d334a421dc12e82e076718bea10286be8023089967554b9d4bc6d40c967f7d3?placeholderIfAbsent=true&apiKey=5e5f7185f1fc4414936991ff9a3c3ed7" alt="" className="object-contain z-0 -mt-6 md:mt-4 w-full aspect-[6.41] " />
+      <div className="absolute inset-x-0 bottom-0 h-8 lg:h-24 bg-gradient-to-t from-black opacity-300"></div>
     </footer>
   );
 };

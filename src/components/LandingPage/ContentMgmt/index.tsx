@@ -5,7 +5,7 @@ const ContentMgmt = () => {
     return (
         <div className=' flex lg:w-[1223px] gap-[79px] items-center  lg:relative md:mx-auto mt-12  lg:mt-32'>
             <div className='w-[514px] h-[779px] shrink-0 hidden lg:block '>
-               <img src={image.hiring_img} className="rounded-lg h-[700px]"  />
+               <img src={image.cont_mgmt_img} className="rounded-lg h-[700px]"  />
             </div>
             <div className='flex flex-col gap-4 items-start mx-4 '>
                 <div className='flex flex-col gap-2 items-start '>

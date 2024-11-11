@@ -2,7 +2,7 @@ import header_bg from "../../../assets/image/header_bg.png"
 
 const Header = () => {
     return (
-        <div className=" bg-cover bg-center w-full h-[45vh] lg:h-[95vh] lg:ml-24 " style={{ backgroundImage: `url(${header_bg})`, width: "90%", }}>
+        <div className=" bg-cover bg-center w-full h-[45vh] lg:h-[90vh] lg:ml-24 " style={{ backgroundImage: `url(${header_bg})`, width: "90%", }}>
             <div className="flex justify-center items-center">
                 <div className="md:mt-28">
                     <div className=' flex lg:w-[752px] flex-col gap-4 items-center '>

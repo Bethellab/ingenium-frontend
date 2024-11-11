@@ -21,6 +21,7 @@ import users_icon from './users_icon.png'
 import user_eng_icon from './user_eng_icon.png'
 import grad_cap_icon from './grad_cap_icon.png'
 import footer_logo from './footer_logo.png'
+import cont_mgmt_img from './cont_mgmt_img.png'
 
 
 export const image = {
@@ -46,5 +47,6 @@ export const image = {
     users_icon,
     user_eng_icon,
     grad_cap_icon,
-    footer_logo
+    footer_logo,
+    cont_mgmt_img
 }
