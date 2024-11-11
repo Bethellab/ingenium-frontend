@@ -25,11 +25,8 @@ function LandingPage() {
         <WhatIsIngenium />
       </div>
       <div>
-        {/* <Hiring />
-        <Elearning />
-        <ContentMgmt />
-        <WhyChooseIngenium /> */}
-        <UnlockExperience />
+       
+      
         <HRTransform />
         <Footer />
 
