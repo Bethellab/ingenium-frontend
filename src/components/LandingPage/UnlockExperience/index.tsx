@@ -3,7 +3,7 @@
 const UnlockExperience = () => {
     return (
         <div>
-            <div className=' flex flex-col gap-4 items-center lg:mt-16'>
+            <div className=' flex flex-col gap-4 items-center mt-24 lg:mt-16'>
                 <div className="flex flex-col items-center text-center gap-3">
                     <h2 className="text-2xl md:text-4xl lg:text-5xl font-medium leading-tight text-gray-900">
                         Unlock the full experience
@@ -13,10 +13,10 @@ const UnlockExperience = () => {
                     </p>
                 </div>
                 {/* Pricing Cards */}
-                <div className="flex flex-col lg:flex-row gap-12">
+                <div className="flex flex-col xl:flex-row gap-12">
 
                     {/* Basic Plan Card */}
-                    <div className="lg:w-96 p-6 bg-white rounded-lg shadow-lg">
+                    <div className="w-full lg:w-96 p-6 bg-white rounded-lg shadow-lg">
                         <div className="mb-8">
                             <button className="bg-gray-200 text-sm font-semibold py-2 px-4 rounded-lg">
                                 BASIC

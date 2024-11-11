@@ -52,7 +52,7 @@ const WhyChooseIngenium = () => {
 
 
                     <div className="flex flex-col items-start gap-4 p-4  shadow-sm lg:max-w-xs">
-                        <img src={image.users_icon}  className="w-14 h-14" />
+                        <img src={image.user_access_icon}  className="w-14 h-14" />
                         <h3 className="text-lg font-semibold text-gray-800">
                             Global accessibility for all users.
                         </h3>

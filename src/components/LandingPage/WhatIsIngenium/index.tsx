@@ -7,7 +7,7 @@ const WhatIsIngenium = () => {
         <span className=" text-[17px] font-medium  text-[#cce7fc]  text-center whitespace-nowrap ">
           What is Ingenium?
         </span>
-        <span className="flex justify-center items-center lg:w-[900px] md:text-4xl font-medium  text-[#fff]  relative text-center ">
+        <span className="flex justify-center items-center xl:w-[900px] md:text-4xl font-medium  text-[#fff]  relative text-center ">
           Ingenium's mission is to empower HR teams worldwide by providing a
           comprehensive platform that simplifies complex tasks. Through its
           user-friendly interface and powerful features, Ingenium enables

@@ -22,7 +22,17 @@ import user_eng_icon from './user_eng_icon.png'
 import grad_cap_icon from './grad_cap_icon.png'
 import footer_logo from './footer_logo.png'
 import cont_mgmt_img from './cont_mgmt_img.png'
-
+import pallet from './pallet.png'
+import causal from './causal.png'
+import openAI from './openAI.png'
+import plain from './plain.png'
+import person1 from './person1.png'
+import person2 from './person2.png'
+import person3 from './person3.png'
+import person4 from './person4.png'
+import avatar from './Avatar.png'
+import left_arrow from './left-arrow_icon.png'
+import right_arrow from './right_arrow_icon.png'
 
 export const image = {
     ingenium_logo,
@@ -48,5 +58,16 @@ export const image = {
     user_eng_icon,
     grad_cap_icon,
     footer_logo,
-    cont_mgmt_img
+    cont_mgmt_img,
+    pallet,
+    causal,
+    openAI,
+    plain,
+    person1,
+    person2,
+    person3,
+    person4,
+    avatar,
+    left_arrow,
+    right_arrow
 }

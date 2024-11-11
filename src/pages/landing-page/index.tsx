@@ -9,6 +9,7 @@ import HRTransform from "@/components/LandingPage/HRTransfrom";
 
 
 import Navbar from "@/components/LandingPage/Navbar";
+import RealWorldSuccess from "@/components/LandingPage/RealWorldSuccess";
 import UnlockExperience from "@/components/LandingPage/UnlockExperience";
 import WhatIsIngenium from "@/components/LandingPage/WhatIsIngenium";
 import WhoIsIngeniumFor from "@/components/LandingPage/WhoIsIngeniumFor";
@@ -28,6 +29,7 @@ function LandingPage() {
         <Hiring />
         <Elearning />
         <ContentMgmt />
+        <RealWorldSuccess />
         <WhyChooseIngenium />
         <UnlockExperience />
         <HRTransform />

@@ -14,8 +14,8 @@ const WhoIsIngeniumFor = () => {
                     </span>
                 </div>
                 <div className='flex flex-col gap-6  '>
-                    <div className='flex flex-col  lg:flex-row justify-between items-center gap-6'>
-                        <div className='flex  p-[18px] flex-col gap-4 items-start  bg-[#fff] rounded-xl '>
+                    <div className='flex flex-col  xl:flex-row justify-between items-center gap-6'>
+                        <div className='flex  p-[18px] flex-col gap-4 items-start  bg-[#fff] rounded-xl  '>
                             <img src={image.bag_icon} className="w-14"  />
                             <div className='flex flex-col gap-2 items-start '>
                                 <span className=" text-lg font-bold  text-[#262626]  text-left whitespace-nowrap ">
