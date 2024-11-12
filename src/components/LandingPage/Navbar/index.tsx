@@ -9,31 +9,54 @@ const Navbar = () => {
 
     const [showMenu, setShowMenu] = useState(false)
 
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+
+    const handleDropdownToggle = () => {
+        setIsDropdownOpen(!isDropdownOpen);
+    };
+
+    const handleUserTypeSelection = (userType: 'business' | 'individual') => {
+        navigate(`/signup/${userType}`);
+    };
+
     return (
         <div className=' text-sm py-3 mb-5 '>
             <div className='bg-white flex items-center justify-between py-3 px-2 rounded-full'>
                 <img onClick={() => navigate('/')} className='w-28 cursor-pointer' src={image.ingenium_logo} />
                 <ul className='hidden xl:flex items-start gap-10 font-medium'>
-                   
+
                     <NavLink to='/'>
-                        <li className='py-1 whitespace-nowrap'>Explore</li>    
+                        <li className='py-1 whitespace-nowrap'>Explore</li>
                     </NavLink>
                     <NavLink to='/'>
                         <li className='py-1 whitespace-nowrap'>Find Your Next Talent</li>
-                       
+
                     </NavLink>
                     <NavLink to='/'>
-                        <li className='py-1 whitespace-nowrap'>Advance Your Career</li>   
+                        <li className='py-1 whitespace-nowrap'>Advance Your Career</li>
                     </NavLink>
                     <NavLink to='/'>
-                        <li className='py-1 whitespace-nowrap'>Blog</li>   
+                        <li className='py-1 whitespace-nowrap'>Blog</li>
                     </NavLink>
                 </ul>
-                <div className='flex items-center gap-4'>
+                <div className='flex items-center gap-4 relative'>
+
+                    <button onClick={handleDropdownToggle} className='border rounded-full px-2 py-2 whitespace-nowrap'>Sign in</button>
+                     {/* Dropdown for Sign in */}
+                     {isDropdownOpen && (
+                        <div className='absolute right-0 mt-36 w-48 bg-white border rounded-lg shadow-lg z-10'>
+                            <button onClick={() => handleUserTypeSelection('business')} className='block px-4 py-2 text-left w-full hover:bg-gray-100'>
+                                Sign in as Business
+                            </button>
+                            <button onClick={() => handleUserTypeSelection('individual')} className='block px-4 py-2 text-left w-full hover:bg-gray-100'>
+                                Sign in as Individual
+                            </button>
+                        </div>
+                    )}
                     
-                        <button className='border rounded-full px-2 py-2 whitespace-nowrap'>Sign in</button>
-                        <button className='bg-primary py-2 px-4 rounded-full text-white hidden md:block whitespace-nowrap'>Get Started</button>
-                  
+                    <button className='bg-primary py-2 px-4 rounded-full text-white hidden md:block whitespace-nowrap'>Get Started</button>
+
 
                     <img onClick={() => setShowMenu(true)} className='w-6 xl:hidden' src={image.menubar} alt='' />
                     {/**********Mobile Menu */}
@@ -53,6 +76,7 @@ const Navbar = () => {
                 </div>
 
             </div>
+           
 
         </div>
     )

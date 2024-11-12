@@ -29,7 +29,7 @@ function LandingPage() {
         <Hiring />
         <Elearning />
         <ContentMgmt />
-        <RealWorldSuccess />
+        <RealWorldSuccess/>
         <WhyChooseIngenium />
         <UnlockExperience />
         <HRTransform />

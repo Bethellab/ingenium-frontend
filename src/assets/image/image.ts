@@ -33,6 +33,7 @@ import person4 from './person4.png'
 import avatar from './Avatar.png'
 import left_arrow from './left-arrow_icon.png'
 import right_arrow from './right_arrow_icon.png'
+import envelope from './Envelope.png'
 
 export const image = {
     ingenium_logo,
@@ -69,5 +70,6 @@ export const image = {
     person4,
     avatar,
     left_arrow,
-    right_arrow
+    right_arrow,
+    envelope
 }
