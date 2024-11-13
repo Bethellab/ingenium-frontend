@@ -1,8 +1,9 @@
+import { image } from '@/assets/image/image';
 import React, { Dispatch, SetStateAction, useState } from 'react';
 import { HiEye, HiEyeOff } from 'react-icons/hi';
 
 type SignupFormProps = {
-    setFormType: Dispatch<SetStateAction<'signup' | 'login' | 'forgotPassword' | 'activate'>>;
+    setFormType: Dispatch<SetStateAction<'signup' | 'login' | 'forgotPassword' >>;
     userType: 'individual' | 'business';
 };
 
@@ -151,6 +152,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ setFormType, userType }) => {
                 ) : (
                     // Email Confirmation View
                     <div className="flex justify-center mt-24 items-center w-full lg:w-[600px] p-6 flex-col gap-6 bg-white rounded-lg border-solid border border-[#e9ecef]">
+                        <img src={image.envelope} />
                         <div className="flex items-center lg:w-[540px] flex-col gap-2">
                             <span className="text-2xl font-semibold text-center">Check your inbox</span>
                             <span className="text-md font-normal text-[#6c6a6a] text-center">

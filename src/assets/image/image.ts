@@ -34,6 +34,8 @@ import avatar from './Avatar.png'
 import left_arrow from './left-arrow_icon.png'
 import right_arrow from './right_arrow_icon.png'
 import envelope from './Envelope.png'
+import bulkupload from './bulkupload.png'
+import signinlogo from './signinlogo.png'
 
 export const image = {
     ingenium_logo,
@@ -71,5 +73,7 @@ export const image = {
     avatar,
     left_arrow,
     right_arrow,
-    envelope
+    envelope,
+    bulkupload,
+    signinlogo
 }

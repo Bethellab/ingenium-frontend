@@ -1,7 +1,7 @@
 import React from 'react';
 
 type ForgotPasswordFormProps = {
-    setFormType: React.Dispatch<React.SetStateAction<'signup' | 'login' | 'forgotPassword' | 'activate'>>;
+    setFormType: React.Dispatch<React.SetStateAction<'signup' | 'login' | 'forgotPassword' >>;
 };
 
 const ForgotPasswordForm: React.FC<ForgotPasswordFormProps> = ({ setFormType }) => (

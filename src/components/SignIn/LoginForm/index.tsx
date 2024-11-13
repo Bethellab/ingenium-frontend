@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { HiEye, HiEyeOff } from 'react-icons/hi';
 
 type LoginFormProps = {
-    setFormType: React.Dispatch<React.SetStateAction<'signup' | 'login' | 'forgotPassword' | 'activate'>>;
+    setFormType: React.Dispatch<React.SetStateAction<'signup' | 'login' | 'forgotPassword' >>;
 };
 
 const LoginForm: React.FC<LoginFormProps> = ({ setFormType }) => {
