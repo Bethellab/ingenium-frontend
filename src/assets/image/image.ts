@@ -36,6 +36,9 @@ import right_arrow from './right_arrow_icon.png'
 import envelope from './Envelope.png'
 import bulkupload from './bulkupload.png'
 import signinlogo from './signinlogo.png'
+import home from './home.svg'
+import course_icon from './course_icon.png'
+import learning_icon from './learning_icon.png'
 
 export const image = {
     ingenium_logo,
@@ -75,5 +78,8 @@ export const image = {
     right_arrow,
     envelope,
     bulkupload,
-    signinlogo
+    signinlogo,
+    home,
+    learning_icon,
+    course_icon
 }

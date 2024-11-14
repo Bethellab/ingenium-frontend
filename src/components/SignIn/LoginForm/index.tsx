@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { HiEye, HiEyeOff } from 'react-icons/hi';
+import { useNavigate } from 'react-router-dom';
 
 type LoginFormProps = {
     setFormType: React.Dispatch<React.SetStateAction<'signup' | 'login' | 'forgotPassword' >>;
@@ -7,6 +8,8 @@ type LoginFormProps = {
 
 const LoginForm: React.FC<LoginFormProps> = ({ setFormType }) => {
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+
+    const navigate = useNavigate()
 
     return (
         <div className="flex justify-center w-full lg:w-[600px] p-6 flex-col gap-6 lg:mt-10 bg-white rounded-lg border-solid border border-[#e9ecef]">
@@ -35,7 +38,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ setFormType }) => {
                         </span>
                     </div>
                 </div>
-                <button className="bg-primary text-center w-full py-2 text-white rounded-xl">Log In</button>
+                <button onClick={() => navigate('/onboarding/home')} className="bg-primary text-center w-full py-2 text-white rounded-xl">Log In</button>
                 <p className="text-center">Forgot Your Password? <span className="text-primary underline cursor-pointer" onClick={() => setFormType('forgotPassword')}>Click here</span></p>
                 <p className="text-center">Don’t have an account? <span className="text-primary underline cursor-pointer" onClick={() => setFormType('signup')}>Sign up</span></p>
             </div>

@@ -197,7 +197,7 @@ const InviteYourTeamMember: React.FC = () => {
 
 
                                     </div>
-                                    <button className="bg-blue-500 text-white px-4 py-2 rounded-xl mb-4 w-full mt-4">
+                                    <button onClick={() => navigate('/onboarding/home')} className="bg-blue-500 text-white px-4 py-2 rounded-xl mb-4 w-full mt-4">
                                         Continue
                                     </button>
                                 </>
@@ -254,7 +254,7 @@ const InviteYourTeamMember: React.FC = () => {
                                 <button onClick={addManualMember} className="bg-white border w-64 border-gray-600 px-4 py-2 rounded">
                                     Add another team member
                                 </button>
-                                <button className="bg-blue-500 text-white px-4 py-2 rounded-xl mb-4">
+                                <button onClick={() => navigate('/onboarding/home')} className="bg-blue-500 text-white px-4 py-2 rounded-xl mb-4">
                                     Continue
                                 </button>
 

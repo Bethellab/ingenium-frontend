@@ -10,3 +10,8 @@
 /* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 } */
+
+.filter {
+  filter: hue-rotate(180deg) saturate(200%);
+}
+
