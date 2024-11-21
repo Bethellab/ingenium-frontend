@@ -10,6 +10,11 @@ const Navbar = () => {
 
   const [showMenu, setShowMenu] = useState(false)
 
+  const isActive = (path: string) => {
+    // Check if the current path starts with the given path
+    return location.pathname.startsWith(path);
+  };
+
 
   return (
     <div className=' text-sm py-2 mb-2 border-b  '>
@@ -19,11 +24,11 @@ const Navbar = () => {
           <input type="Search" placeholder='search' className='bg-gray-200 outline-none rounded-lg py-2 px-2' />
         </div>
 
-        <ul className='hidden xl:flex items-start gap-8  text-lg mr-72'>
+        <ul className='hidden xl:flex items-start gap-2  text-lg mr-80'>
 
           <NavLink
             to="/onboarding/home"
-            className={({ isActive }) => (isActive ? 'text-primary border-b-2 border-primary' : 'text-gray-600')} // Change the text color based on the active state
+            className={`px-4 py-2 ${isActive("/onboarding/home") ? "text-blue-500" : "text-gray-700"}`} // Change the text color based on the active state
           >
             <div className="flex items-center gap-2">
               <svg
@@ -40,7 +45,7 @@ const Navbar = () => {
           </NavLink>
 
 
-          <NavLink to='/onboarding/courses' className={({ isActive }) => (isActive ? 'text-primary border-b-2 border-primary' : 'text-gray-600')} >
+          <NavLink to='/onboarding/courses'  className={`px-4 py-2 ${isActive("/onboarding/courses") ? "text-blue-500" : "text-gray-700"}`} >
             <div className='flex items-center gap-2'>
               <svg width="17" height="18" viewBox="0 0 17 18" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path d="M0.791748 13.4585V8.4585C0.791748 7.98183 0.963137 7.58489 1.30591 7.26766C1.64855 6.95044 2.05355 6.81266 2.52091 6.85433C3.63203 7.021 4.68758 7.32308 5.68758 7.76058C6.68758 8.19808 7.62508 8.75016 8.50008 9.41683C9.37508 8.75016 10.3126 8.19808 11.3126 7.76058C12.3126 7.32308 13.3681 7.021 14.4792 6.85433C14.9466 6.81266 15.3516 6.95044 15.6942 7.26766C16.037 7.58489 16.2084 7.98183 16.2084 8.4585V13.4585C16.2084 13.9224 16.0556 14.3266 15.7501 14.671C15.4445 15.0154 15.0626 15.2085 14.6042 15.2502C13.6665 15.3484 12.7827 15.6021 11.953 16.0114C11.1233 16.4206 10.3268 16.9059 9.56362 17.4675C9.41015 17.6004 9.23967 17.6911 9.05217 17.7397C8.86467 17.7884 8.68064 17.8127 8.50008 17.8127C8.31953 17.8127 8.1355 17.7884 7.948 17.7397C7.7605 17.6911 7.59001 17.6004 7.43654 17.4675C6.67335 16.9059 5.87689 16.4206 5.04716 16.0114C4.21744 15.6021 3.33369 15.3484 2.39591 15.2502C1.93758 15.2085 1.55564 15.0154 1.25008 14.671C0.944526 14.3266 0.791748 13.9224 0.791748 13.4585ZM8.50279 7.85433C7.44543 7.85433 6.54522 7.4837 5.80217 6.74245C5.05911 6.00134 4.68758 5.10204 4.68758 4.04454C4.68758 2.98718 5.05821 2.0835 5.79946 1.3335C6.54057 0.583496 7.43987 0.208496 8.49737 0.208496C9.55473 0.208496 10.4549 0.583496 11.198 1.3335C11.9411 2.0835 12.3126 2.98718 12.3126 4.04454C12.3126 5.10204 11.942 6.00134 11.2007 6.74245C10.4596 7.4837 9.56029 7.85433 8.50279 7.85433Z" />
@@ -50,7 +55,7 @@ const Navbar = () => {
             </div>
 
           </NavLink>
-          <NavLink to='/onboarding/mylearning' className={({ isActive }) => (isActive ? 'text-primary border-b-2 border-primary' : 'text-gray-600')}>
+          <NavLink to='/onboarding/mylearning'  className={`px-4 py-2 ${isActive("/onboarding/mylearning") ? "text-blue-500" : "text-gray-700"}`}>
             <div className='flex items-center gap-2'>
               <svg width="21" height="20" viewBox="0 0 21 20"  fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <mask id="mask0_189_5575" maskUnits="userSpaceOnUse" x="0" y="0" width="21" height="20">
@@ -67,9 +72,10 @@ const Navbar = () => {
 
 
 
+          
           <NavLink
             to="/onboarding/home"
-            className={({ isActive }) => (isActive ? 'text-primary border-b-2 border-primary' : 'text-gray-600')} // Change the text color based on the active state
+            className={`px-4 py-2 ${isActive("/onboarding/home") ? "text-blue-500" : "text-gray-700"}`} // Change the text color based on the active state
           >
             <div className="flex items-center gap-2">
               <svg
@@ -87,7 +93,11 @@ const Navbar = () => {
         </ul>
         <div className='flex items-center gap-4 relative'>
 
+          <div className='flex items-center gap-4'>
+               <img src={image.notification} />
+               <img src={image.profile_icon} />
 
+          </div>
 
 
           <img onClick={() => setShowMenu(true)} className='w-6 xl:hidden' src={image.menubar} alt='' />
@@ -98,10 +108,10 @@ const Navbar = () => {
               <img className='w-7' onClick={() => setShowMenu(false)} src={image.crossbar} alt="" />
             </div>
             <ul className='flex flex-col items-center gap-2 mt-5 px-5 text-lg font-medium'>
-              <NavLink onClick={() => setShowMenu(false)} to="/"><p className='px-4 py-2 rounded-full inline-block'>Explore</p></NavLink>
-              <NavLink onClick={() => setShowMenu(false)} to="/"><p className='px-4 py-2 rounded-full inline-block'>Find Your Next Talent</p></NavLink>
-              <NavLink onClick={() => setShowMenu(false)} to="/"><p className='px-4 py-2 rounded-full inline-block'>Advnace Your Career</p></NavLink>
-              <NavLink onClick={() => setShowMenu(false)} to="/"><p className='px-4 py-2 rounded-full inline-block'>Blog</p></NavLink>
+              <NavLink onClick={() => setShowMenu(false)}  to="/onboarding/home"><p className='px-4 py-2 rounded-full inline-block'>Home</p></NavLink>
+              <NavLink onClick={() => setShowMenu(false)} to='/onboarding/courses'><p className='px-4 py-2 rounded-full inline-block'>Courses</p></NavLink>
+              <NavLink onClick={() => setShowMenu(false)}  to='/onboarding/mylearning'><p className='px-4 py-2 rounded-full inline-block'>My Learning</p></NavLink>
+              <NavLink onClick={() => setShowMenu(false)}  to="/onboarding/home"><p className='px-4 py-2 rounded-full inline-block'>Home</p></NavLink>
               <button className='bg-primary py-2 px-4 rounded-full text-white'>Get Started</button>
             </ul>
           </div>

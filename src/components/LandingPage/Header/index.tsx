@@ -14,7 +14,7 @@ const Header = () => {
                                     </span>
                                 </div>
                                 <span className="-mt-4 md:mt-0 text-4xl md:text-[72px] font-medium leading-[80px] text-primary  text-center">
-                                    Indenium
+                                    Ingenium
                                 </span>
 
                             </div>

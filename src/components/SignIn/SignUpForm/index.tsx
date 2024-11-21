@@ -156,13 +156,13 @@ const SignupForm: React.FC<SignupFormProps> = ({ setFormType, userType }) => {
                         <div className="flex items-center lg:w-[540px] flex-col gap-2">
                             <span className="text-2xl font-semibold text-center">Check your inbox</span>
                             <span className="text-md font-normal text-[#6c6a6a] text-center">
-                                We’ve just sent an email confirmation to <strong>kehinde@glova.com</strong>.
+                                We’ve just sent an email confirmation to <strong className='text-primary'>kehinde@glova.com</strong>.
                                 Click the link to verify your email.
                             </span>
                         </div>
-                        <div className="flex justify-center items-center w-full gap-4">
+                        <div className="flex flex-col justify-center items-center w-full gap-4">
                             <button
-                                className="bg-primary text-white py-2 px-4 rounded-xl"
+                                className="bg-primary text-white py-2 px-4 rounded-xl w-full"
                                 onClick={() => console.log('Opening email app...')} // You can implement deep link functionality here
                             >
                                 Open Email App

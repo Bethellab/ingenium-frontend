@@ -39,6 +39,10 @@ import signinlogo from './signinlogo.png'
 import home from './home.svg'
 import course_icon from './course_icon.png'
 import learning_icon from './learning_icon.png'
+import teaching from './Teaching.png'
+import moneymaking from './moneymaking.png'
+import notification from './notifications.png'
+import profile_icon from './profile_icon.png'
 
 export const image = {
     ingenium_logo,
@@ -81,5 +85,9 @@ export const image = {
     signinlogo,
     home,
     learning_icon,
-    course_icon
+    course_icon,
+    teaching,
+    moneymaking,
+    notification,
+    profile_icon
 }
