@@ -264,7 +264,7 @@ const InviteYourTeamMember: React.FC = () => {
                     )}
 
                     <div className='mt-2'>
-                        <p className='text-center text-primary text-lg '>Skill for now</p>
+                        <p className='text-center text-primary text-lg '>Skip for now</p>
 
                     </div>
 

@@ -11,6 +11,7 @@ import Home from "@/components/Onboarding/Home";
 import Courses from "../components/Onboarding/Courses";
 import Learning from "../components/Onboarding/Learning";
 import TechCourseDetails from "@/components/Onboarding/Home/HomeTabs/TechTab/TechCourseDetails";
+import LessonDetails from "@/components/Onboarding/Home/HomeTabs/TechTab/TechCourseDetails/LessonDetails";
 // import LoginForm from "@/components/SignIn/LoginForm";
 
 
@@ -28,7 +29,10 @@ const router = createBrowserRouter([
       { path: "home", element: <Home /> },
       { path: "courses", element: <Courses /> },
       { path: "mylearning", element: <Learning /> },
-      {  path:"/onboarding/home/course-details/:id", element:<TechCourseDetails />}
+      {  path:"/onboarding/home/course-details/:id", element:<TechCourseDetails />},
+      { path: "/onboarding/home/course/:courseId/lesson/:lessonId", element: <LessonDetails /> }
+
+        
     ],
   },
 
