@@ -1,6 +1,7 @@
 import { image } from '@/assets/image/image';
 import React, { Dispatch, SetStateAction, useState } from 'react';
 import { HiEye, HiEyeOff } from 'react-icons/hi';
+import { useNavigate } from 'react-router-dom';
 
 type SignupFormProps = {
     setFormType: Dispatch<SetStateAction<'signup' | 'login' | 'forgotPassword' >>;
@@ -10,6 +11,7 @@ type SignupFormProps = {
 const SignupForm: React.FC<SignupFormProps> = ({ setFormType, userType }) => {
     const [formSubmitted, setFormSubmitted] = useState(false);
 
+    const navigate = useNavigate()
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
     const [password, setPassword] = useState('');
     const [passwordStrength, setPasswordStrength] = useState<string>('');
@@ -163,16 +165,16 @@ const SignupForm: React.FC<SignupFormProps> = ({ setFormType, userType }) => {
                         <div className="flex flex-col justify-center items-center w-full gap-4">
                             <button
                                 className="bg-primary text-white py-2 px-4 rounded-xl w-full"
-                                onClick={() => console.log('Opening email app...')} // You can implement deep link functionality here
+                                onClick={() => navigate('/chooseyourplan')} // You can implement deep link functionality here
                             >
                                 Open Email App
                             </button>
-                            <button
+                            {/* <button
                                 className="text-primary underline cursor-pointer"
                                 onClick={() => setFormType('login')} // Redirect to login if needed
                             >
                                 Back to Login
-                            </button>
+                            </button> */}
                         </div>
                     </div>
                 )}

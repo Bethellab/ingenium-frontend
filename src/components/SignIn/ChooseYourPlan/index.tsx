@@ -51,7 +51,7 @@ const ChooseYourPlan = () => {
 
                         </div>
 
-                        <button className="w-full mt-8 py-2 bg-primary text-white border border-gray-300 rounded-lg font-medium text-center">
+                        <button  className="w-full mt-8 py-2 bg-primary text-white border border-gray-300 rounded-lg font-medium text-center">
                         Try for free for 30 days
                         </button>
                     </div>
