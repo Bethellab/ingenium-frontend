@@ -1,13 +1,33 @@
 import { Link, useParams } from "react-router-dom";
-import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
+import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import { useState } from "react";
-
+import CourseQuestions from "./CourseQuestion";
 
 function LessonDetails() {
     const { courseId, lessonId } = useParams();
+    const [activeTab, setActiveTab] = useState(0);
+    const [activeChapterIdx, setActiveChapterIdx] = useState<number | null>(0);
+    const [activeLessonIdx, setActiveLessonIdx] = useState<string | null>(null);
 
-    const [activeChapterIdx, setActiveChapterIdx] = useState<number | null>(null); // Track the active chapter
-    const [activeLessonIdx, setActiveLessonIdx] = useState<string | null>(null); // Track the active lesson
+
+
+    const [isFilterDropdownOpen, setIsFilterDropdownOpen] = useState(false);
+    const [selectedChapter, setSelectedChapter] = useState('All chapters');
+    const [isSortDropdownOpen, setIsSortDropdownOpen] = useState(false);
+    const [selectedSort, setSelectedSort] = useState('Sort by recommended');
+    const [isQuestionFilterOpen, setIsQuestionFilterOpen] = useState(false);
+    const [selectedQuestionFilter, setSelectedQuestionFilter] = useState('Filter questions');
+
+
+    const questionFilters = ['All questions', 'Answered', 'Unanswered'];
+
+    const chapters = ['All chapters', 'Chapter 1', 'Chapter 2', 'Chapter 3'];
+    const sortOptions = ['Sort by recommended', 'Sort by popularity', 'Sort by date'];
+
+    type Tab = {
+        label: string;
+        content: React.ReactNode;
+    };
 
     // Toggle chapter visibility
     const toggleChapter = (chapterIdx: number) => {
@@ -18,6 +38,8 @@ function LessonDetails() {
     const toggleLesson = (lessonId: string) => {
         setActiveLessonIdx(activeLessonIdx === lessonId ? null : lessonId);
     };
+
+    // Sample course data
     const courses = [
         {
             id: 1,
@@ -27,7 +49,7 @@ function LessonDetails() {
             chapters: [
                 {
                     title: "Chapter 1: How To Save",
-                    duration: '9h 59m',
+                    duration: "9h 59m",
                     lessons: [
                         { id: "Lesson1", title: "Introduction", duration: "2h 59m" },
                         { id: "Lesson2", title: "Saving Tips", duration: "1h 30m" },
@@ -36,64 +58,202 @@ function LessonDetails() {
                 },
                 {
                     title: "Chapter 2: Budgeting Basics",
-                    duration: '9h 59m',
+                    duration: "9h 59m",
                     lessons: [
                         { id: "Lesson4", title: "Budgeting Overview", duration: "2h" },
                         { id: "Lesson5", title: "Tools for Budgeting", duration: "1h 45m" },
                     ],
                 },
-                // More chapters...
             ],
         },
-
         {
             id: 2,
             title: "Tech Innovations 🚀",
             description:
-            "Discover the latest trends in technology and innovation. Learn how emerging technologies are shaping the world and what skills you need to stay ahead in the tech industry.",
+                "Discover the latest trends in technology and innovation. Learn how emerging technologies are shaping the world and what skills you need to stay ahead in the tech industry.",
             chapters: [
                 {
-                    title: "Chapter 1: How To Save",
-                    duration: '9h 59m',
+                    title: "Chapter 1: Innovations 101",
+                    duration: "8h 30m",
                     lessons: [
-                        { id: "Lesson1", title: "Introduction", duration: "2h 59m" },
-                        { id: "Lesson2", title: "Saving Tips", duration: "1h 30m" },
-                        { id: "Lesson3", title: "Advanced Strategies", duration: "3h 15m" },
+                        { id: "Lesson1", title: "Introduction", duration: "2h 30m" },
+                        { id: "Lesson2", title: "Tech Tips", duration: "1h 20m" },
                     ],
                 },
-                {
-                    title: "Chapter 2: Budgeting Basics",
-                    duration: '9h 59m',
-                    lessons: [
-                        { id: "Lesson4", title: "Budgeting Overview", duration: "2h" },
-                        { id: "Lesson5", title: "Tools for Budgeting", duration: "1h 45m" },
-                    ],
-                },
-                // More chapters...
             ],
         },
-
-
-
-        // Other courses...
     ];
 
-    const course = courses.find((course) => course.id === parseInt(courseId || '0'));
-
+    // Get the selected course and lesson
+    const course = courses.find((course) => course.id === parseInt(courseId || "0"));
     const selectedLesson = course
         ? course.chapters.flatMap((chapter) => chapter.lessons).find((lesson) => lesson.id === lessonId)
         : null;
 
+    const tabs: Tab[] = [
+        {
+            label: "Overview",
+            content: course ? (
+                <div className="space-y-2 py-2">
+                    <h2 className="text-xl font-bold">Description</h2>
+                    <p className="text-lg font-normal text-gray-600">{course.description}</p>
+                </div>
+            ) : (
+                <div className="text-gray-600">Course details not available.</div>
+            ),
+        },
+        {
+            label: "Q&A", content:
+
+                <div className=" py-8  mx-24">
+
+                    <div className="w-full  ">
+                        <div className="flex justify-center items-center ">
+                            <input
+                                className="w-full bg-gray-200 placeholder:text-slate-400 text-slate-700 text-md border border-slate-200 rounded-md p-3 transition duration-300 ease focus:outline-none"
+                                placeholder="Search all course questions"
+                            />
+                            <button
+                                className="  flex items-center rounded-md bg-primary p-3 "
+                                type="button"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-white">
+                                    <path fill-rule="evenodd" d="M10.5 3.75a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5ZM2.25 10.5a8.25 8.25 0 1 1 14.59 5.28l4.69 4.69a.75.75 0 1 1-1.06 1.06l-4.69-4.69A8.25 8.25 0 0 1 2.25 10.5Z" clip-rule="evenodd" />
+                                </svg>
+
+
+                            </button>
+
+                        </div>
+
+
+
+
+
+                    </div>
+                    <div className="flex gap-4 py-4">
+                        {/* Filters Section */}
+                        <div className="flex items-center gap-2">
+                            <span className="text-md font-medium">Filters:</span>
+                            <div className="relative">
+                                <button
+                                    className="flex items-center gap-2 px-4 py-2 text-sm border rounded-md text-gray-700 border-gray-300"
+                                    onClick={() => setIsFilterDropdownOpen(!isFilterDropdownOpen)}
+                                >
+                                    {selectedChapter}
+                                    <span className="w-4 h-4">
+                                        <FaChevronDown
+                                            className={`${isFilterDropdownOpen ? 'rotate-180' : ''} transition-transform`}
+                                        />
+                                    </span>
+                                </button>
+                                {isFilterDropdownOpen && (
+                                    <div className="absolute z-10 w-full mt-2 bg-white border rounded-md shadow-lg border-gray-300">
+                                        {chapters.map((chapter, index) => (
+                                            <button
+                                                key={index}
+                                                className="block w-full px-4 py-2 text-left text-sm hover:bg-gray-100"
+                                                onClick={() => {
+                                                    setSelectedChapter(chapter);
+                                                    setIsFilterDropdownOpen(false);
+                                                }}
+                                            >
+                                                {chapter}
+                                            </button>
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+
+                        {/* Sort Section */}
+                        <div className="flex items-center gap-2">
+                            <span className="text-md font-medium">Sort by:</span>
+                            <div className="relative">
+                                <button
+                                    className="flex items-center gap-2 px-4 py-2 text-sm border rounded-md text-gray-700 border-gray-300"
+                                    onClick={() => setIsSortDropdownOpen(!isSortDropdownOpen)}
+                                >
+                                    {selectedSort}
+                                    <span className="w-4 h-4">
+                                        <FaChevronDown
+                                            className={`${isSortDropdownOpen ? 'rotate-180' : ''} transition-transform`}
+                                        />
+                                    </span>
+                                </button>
+                                {isSortDropdownOpen && (
+                                    <div className="absolute z-10 w-full mt-2 bg-white border rounded-md shadow-lg border-gray-300">
+                                        {sortOptions.map((option, index) => (
+                                            <button
+                                                key={index}
+                                                className="block w-full px-4 py-2 text-left text-sm hover:bg-gray-100"
+                                                onClick={() => {
+                                                    setSelectedSort(option);
+                                                    setIsSortDropdownOpen(false);
+                                                }}
+                                            >
+                                                {option}
+                                            </button>
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+
+                        {/* Filter Questions Section */}
+                        <div className="flex items-center gap-2">
+                          
+                            <div className="relative">
+                                <button
+                                    className="flex items-center gap-2 px-4 py-2 text-sm border rounded-md text-gray-700 border-gray-300"
+                                    onClick={() => setIsQuestionFilterOpen(!isQuestionFilterOpen)}
+                                >
+                                    {selectedQuestionFilter}
+                                    <span className="w-4 h-4">
+                                        <FaChevronDown
+                                            className={`${isQuestionFilterOpen ? 'rotate-180' : ''} transition-transform`}
+                                        />
+                                    </span>
+                                </button>
+                                {isQuestionFilterOpen && (
+                                    <div className="absolute z-10 w-full mt-2 bg-white border rounded-md shadow-lg border-gray-300">
+                                        {questionFilters.map((filter, index) => (
+                                            <button
+                                                key={index}
+                                                className="block w-full px-4 py-2 text-left text-sm hover:bg-gray-100"
+                                                onClick={() => {
+                                                    setSelectedQuestionFilter(filter);
+                                                    setIsQuestionFilterOpen(false);
+                                                }}
+                                            >
+                                                {filter}
+                                            </button>
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                    </div>
+                    <div className="py-6">
+                        <h2 className="font-bold text-2xl">All questions in this course (10)</h2>
+
+                        <CourseQuestions />
+                    </div>
+                </div>
+
+        },
+    ];
+
     return (
         <div>
             {/* Breadcrumb */}
-            <nav className=" text-lg text-gray-600 px-10 border-b py-4">
+            <nav className="text-lg text-gray-600 px-10 border-b py-4">
                 <Link to="/onboarding/home" className="text-blue-500">
                     Learning
                 </Link>
                 <span className="mx-2">{'>'}</span>
                 <Link
-                    to={`/onboarding/home/course-details/${courseId}`}
+                    to={`/onboarding/course-details/${courseId}`}
                     className="text-blue-500"
                 >
                     {course?.title || "Course Not Found"}
@@ -103,44 +263,52 @@ function LessonDetails() {
             </nav>
 
             {/* Main Content */}
-            <div className="flex flex-col lg:flex-row lg:gap-4 lg:mx-5">
+            <div className="flex flex-col lg:flex-row lg:gap-4 lg:mx-2">
                 {/* Video Section */}
-                <div className=" rounded-md p-4">
+                <div className="rounded-md p-4 flex-1">
                     {selectedLesson ? (
                         <>
                             <video
                                 controls
                                 src={`/videos/${lessonId}.mp4`}
-                                className="w-full rounded-lg h-[500px]"
+                                className="w-full rounded-lg lg:h-[500px]"
                             ></video>
-                            {/* <h2 className="mt-4 text-xl font-bold">{selectedLesson.title}</h2> */}
 
+                            {/* Tab Navigation */}
                             <div className="py-6">
-                                <span className="text-lg">Overview</span>
+                                {/* <span className="text-lg">Overview</span> */}
 
-                                <div className="space-y-2 py-2">
-                                    <h2 className="text-xl font-bold">Description</h2>
-                                    <p className="text-lg font-normal text-gray-600">{course?.description}</p>
-
+                                <div className="flex w-full border-gray-300 border-b">
+                                    {tabs.map((tab, index) => (
+                                        <button
+                                            key={index}
+                                            className={`px-4 py-2 text-md font-medium ${activeTab === index
+                                                ? "border-b-4 border-primary font-bold"
+                                                : "text-gray-500"
+                                                }`}
+                                            onClick={() => setActiveTab(index)}
+                                        >
+                                            {tab.label}
+                                        </button>
+                                    ))}
                                 </div>
 
+                                {/* Tab Content */}
+                                <div>{tabs[activeTab].content}</div>
                             </div>
-
-
-
                         </>
                     ) : (
                         <div className="text-gray-600">Select a lesson to watch.</div>
                     )}
                 </div>
 
-                <div className="bg-[#eaf6ff] border-l border-[#e9e9e9] lg:w-[900px] ">
-                    <div className="flex w-full bg-white  flex-col p-4 items-start  ">
+                {/* Course Content */}
+                <aside className="bg-[#eaf6ff] border-l border-[#e9e9e9] lg:w-[500px] h-[700px] overflow-y-scroll">
+                    <div className="flex w-full bg-white flex-col p-4 items-start">
                         <div className="flex justify-between items-center w-full">
                             <span className="text-[20px] font-semibold text-[#262626]">
                                 Courses content
                             </span>
-
                         </div>
                     </div>
 
@@ -158,7 +326,6 @@ function LessonDetails() {
                                                 <span className="text-[18px] font-semibold text-[#1e1e1e]">
                                                     {chapter.title}
                                                 </span>
-                                                {/* Accordion Icon */}
                                                 {activeChapterIdx === chapterIdx ? (
                                                     <FaChevronUp className="w-4 h-4 text-gray-600" />
                                                 ) : (
@@ -168,14 +335,17 @@ function LessonDetails() {
                                             <span className="text-gray-600 text-sm">{chapter.duration}</span>
                                         </div>
 
-                                        {/* Chapter's Lessons (Only show when the chapter is expanded) */}
+                                        {/* Lessons */}
                                         {activeChapterIdx === chapterIdx && (
                                             <ul className="pl-4 space-y-2">
                                                 {chapter.lessons.map((lesson) => (
                                                     <li key={lesson.id} className="flex gap-[12px] items-center">
-                                                        <div className="h-[24px] bg-[url(../assets/images/69c6514d-684f-40c6-8be4-6cb7c49dfbfd.png)] bg-cover" />
+                                                        <div className="h-[24px] bg-[url(../assets/images/placeholder.png)] bg-cover" />
                                                         <div className="flex flex-col">
-                                                            <span className="text-[18px] text-[#231f20] py-2 cursor-pointer" onClick={() => toggleLesson(lesson.id)}>
+                                                            <span
+                                                                className="text-[18px] text-[#231f20] py-2 cursor-pointer"
+                                                                onClick={() => toggleLesson(lesson.id)}
+                                                            >
                                                                 <Link
                                                                     to={`/onboarding/home/course/${courseId}/lesson/${lesson.id}`}
                                                                     className={`block ${lessonId === lesson.id
@@ -184,11 +354,8 @@ function LessonDetails() {
                                                                         }`}
                                                                 >
                                                                     {lesson.title}
-
                                                                 </Link>
-                                                                <span className="text-sm text-gray-500">
-                                                                    {lesson.duration}
-                                                                </span>
+                                                                <span className="text-sm text-gray-500">{lesson.duration}</span>
                                                             </span>
                                                         </div>
                                                     </li>
@@ -200,8 +367,7 @@ function LessonDetails() {
                             </div>
                         </div>
                     </div>
-                </div>
-
+                </aside>
             </div>
         </div>
     );

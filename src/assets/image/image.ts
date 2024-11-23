@@ -43,6 +43,7 @@ import teaching from './Teaching.png'
 import moneymaking from './moneymaking.png'
 import notification from './notifications.png'
 import profile_icon from './profile_icon.png'
+import gift from './Gift.png'
 
 export const image = {
     ingenium_logo,
@@ -89,5 +90,6 @@ export const image = {
     teaching,
     moneymaking,
     notification,
-    profile_icon
+    profile_icon,
+    gift
 }

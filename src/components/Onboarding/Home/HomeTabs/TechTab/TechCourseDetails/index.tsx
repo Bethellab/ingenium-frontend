@@ -6,7 +6,7 @@ import { useState } from "react";
 const TechCourseDetails = () => {
     const { id: courseId } = useParams();
 
-    const [activeChapter, setActiveChapter] = useState<number | null>(null);
+    const [activeChapter, setActiveChapter] = useState<number | null>(0);
 
     const toggleChapter = (chapterIdx: number) => {
       setActiveChapter(activeChapter === chapterIdx ? null : chapterIdx);
@@ -126,7 +126,7 @@ const TechCourseDetails = () => {
                     </div>
 
                     <div className="lg:mx-36 flex flex-col lg:flex-row gap-24 mt-6 items-start">
-                        <div className="space-y-6">
+                        <div >
 
 
 
@@ -136,7 +136,7 @@ const TechCourseDetails = () => {
                                     <h1 className="text-3xl font-bold text-gray-800 mb-4">{course.title}</h1>
                                     <p className="text-lg text-gray-600 mb-8">{course.description}</p>
 
-                                    <div className="main-container w-full max-w-[998px] bg-[#f5f5f5] rounded-[12px] mx-auto my-6 p-6">
+                                    <div className=" w-full bg-[#f5f5f5] rounded-[12px]  my-6 p-6">
                                         <div className="flex justify-between items-center mb-6">
                                             <h2 className="text-lg font-semibold text-[#2b2e33]">Course Outline</h2>
                                             <span className="text-sm font-bold text-[#303030]">

@@ -12,6 +12,10 @@ import Courses from "../components/Onboarding/Courses";
 import Learning from "../components/Onboarding/Learning";
 import TechCourseDetails from "@/components/Onboarding/Home/HomeTabs/TechTab/TechCourseDetails";
 import LessonDetails from "@/components/Onboarding/Home/HomeTabs/TechTab/TechCourseDetails/LessonDetails";
+import LearningCourse from "@/components/Onboarding/Learning/LearningCourse";
+import Analytics from "@/components/Onboarding/Courses/Analytics";
+import Affiliates from "@/components/Onboarding/Affiliates";
+import AddNewAffiliate from "@/components/Onboarding/Affiliates/AddNewAffiliate";
 // import LoginForm from "@/components/SignIn/LoginForm";
 
 
@@ -27,12 +31,19 @@ const router = createBrowserRouter([
     element: <OnboardingLayout />,
     children: [
       { path: "home", element: <Home /> },
+      { path: "/onboarding/course-details/:id", element: <TechCourseDetails /> },
+      { path: "/onboarding/home/course/:courseId/lesson/:lessonId", element: <LessonDetails /> },
       { path: "courses", element: <Courses /> },
+      { path: "/onboarding/courses/analytics", element: <Analytics /> },
       { path: "mylearning", element: <Learning /> },
-      {  path:"/onboarding/home/course-details/:id", element:<TechCourseDetails />},
-      { path: "/onboarding/home/course/:courseId/lesson/:lessonId", element: <LessonDetails /> }
+      { path: "/onboarding/mylearning/learning", element: <LearningCourse /> },
+      { path: "affiliaties", element: <Affiliates/> },
+      { path: "/onboarding/addnewaffiliate", element: <AddNewAffiliate/> },
 
-        
+
+
+
+
     ],
   },
 

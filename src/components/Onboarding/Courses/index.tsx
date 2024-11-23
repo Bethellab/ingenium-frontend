@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { image } from "@/assets/image/image";
+import { useNavigate } from "react-router-dom";
 
 const Courses = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -9,6 +10,8 @@ const Courses = () => {
   const [courseDescription, setCourseDescription] = useState("");
 
   const progress = (step / 4) * 100;
+
+  const navigate = useNavigate()
 
   const handleContinue = () => {
     if (step === 1 && courseName) setStep(step + 1);
@@ -213,7 +216,8 @@ const Courses = () => {
 
                 <button
                   className="bg-primary text-white py-2 px-6 rounded-lg mt-4 w-96"
-                  onClick={handleReset}
+                  // onClick={handleReset}
+                  onClick={() => navigate('/onboarding/courses/analytics')}
                 >
                  Let's Proceed
                 </button>

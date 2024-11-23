@@ -14,4 +14,8 @@
 .filter {
   filter: hue-rotate(180deg) saturate(200%);
 }
+::-webkit-scrollbar {
+  @apply hidden
+}
+
 

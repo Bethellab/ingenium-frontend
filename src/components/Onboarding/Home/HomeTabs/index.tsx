@@ -12,7 +12,7 @@ const Tabs: React.FC = () => {
 
   const tabs: Tab[] = [
     { label: "Tech", content: <TechTab /> },
-    { label: "Finance", content: '' },
+    { label: "Finance", content: <TechTab /> },
     { label: "Engineering", content: ''},
     { label: "Design", content: ''},
     { label: "Sales", content: ''},
