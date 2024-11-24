@@ -1,9 +1,10 @@
 import { useState } from "react";
-import AffiliatesTab from "./AffiliatesTab";
-import { useNavigate } from "react-router-dom";
-import AffiliateSignUp from "./AfflitiateSignUp";
 
-const Affiliates = () => {
+import { useNavigate } from "react-router-dom";
+import AffiliateSignUp from "../AfflitiateSignUp";
+import AffiliateLists from "./AffliliateLists";
+
+const AffiliateList = () => {
 
     type Tab = {
         label: string;
@@ -13,7 +14,7 @@ const Affiliates = () => {
     const [activeTab, setActiveTab] = useState(0);
 
     const tabs: Tab[] = [
-        { label: "Affiliates", content: <AffiliatesTab /> },
+        { label: "Affiliates", content: <AffiliateLists /> },
         { label: "Affiliate Signup Form", content: <AffiliateSignUp /> },
 
     ];
@@ -65,4 +66,4 @@ const Affiliates = () => {
     )
 }
 
-export default Affiliates
+export default AffiliateList

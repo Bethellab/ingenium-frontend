@@ -1,16 +1,23 @@
-import { Link, useNavigate, useParams } from "react-router-dom";
+
+import { Link } from "react-router-dom";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import { useState } from "react";
 import CourseQuestions from "./CourseQuestion";
 import { image } from "@/assets/image/image";
 
-function LessonDetails() {
-    const { courseId, lessonId } = useParams();
+const Quiz = () => {
+
     const [activeTab, setActiveTab] = useState(0);
-    const [activeChapterIdx, setActiveChapterIdx] = useState<number | null>(0);
-    const [activeLessonIdx, setActiveLessonIdx] = useState<string | null>(null);
-    
-    const navigate = useNavigate()
+
+
+
+    const [activeChapterIdx, setActiveChapterIdx] = useState<number | null>(null);
+
+    const toggleChapter = (index: number) => {
+        setActiveChapterIdx(activeChapterIdx === index ? null : index);
+    };
+
+
 
 
     const [isFilterDropdownOpen, setIsFilterDropdownOpen] = useState(false);
@@ -19,7 +26,7 @@ function LessonDetails() {
     const [selectedSort, setSelectedSort] = useState('Sort by recommended');
     const [isQuestionFilterOpen, setIsQuestionFilterOpen] = useState(false);
     const [selectedQuestionFilter, setSelectedQuestionFilter] = useState('Filter questions');
-
+    const [selectedChapterIdx, setSelectedChapterIdx] = useState(0);
 
     const questionFilters = ['All questions', 'Answered', 'Unanswered'];
 
@@ -31,65 +38,64 @@ function LessonDetails() {
         content: React.ReactNode;
     };
 
-    // Toggle chapter visibility
-    const toggleChapter = (chapterIdx: number) => {
-        setActiveChapterIdx(activeChapterIdx === chapterIdx ? null : chapterIdx);
-    };
 
-    // Toggle lesson visibility
-    const toggleLesson = (lessonId: string) => {
-        setActiveLessonIdx(activeLessonIdx === lessonId ? null : lessonId);
-    };
 
-    // Sample course data
+
+
     const courses = [
         {
-            id: 1,
             title: "Money Matters 💸",
-            description:
-                "Start the path to become financially savvy, and learn how to manage personal and business finances using practical and strategic methods...",
+            description: "Start the path to become financially savvy...",
             chapters: [
                 {
                     title: "Chapter 1: How To Save",
-                    duration: "9h 59m",
+                    description: "Learn to save money effectively.",
+                    duration: "10 minutes",
                     lessons: [
-                        { id: "Lesson1", title: "Introduction", duration: "2h 59m" },
-                        { id: "Lesson2", title: "Saving Tips", duration: "1h 30m" },
-                        { id: "Lesson3", title: "Advanced Strategies", duration: "3h 15m" },
-                    ],
-                    hasQuiz: true, // Add a flag indicating there is a quiz
-                },
-                {
-                    title: "Chapter 2: Budgeting Basics",
-                    duration: "9h 59m",
-                    lessons: [
-                        { id: "Lesson4", title: "Budgeting Overview", duration: "2h" },
-                        { id: "Lesson5", title: "Tools for Budgeting", duration: "1h 45m" },
+                        { id: 1, title: "Why Save?", duration: "5 minutes" },
+                        { id: 2, title: "Setting Goals", duration: "5 minutes" },
                     ],
                     hasQuiz: true,
                 },
+                {
+                    title: "Chapter 2: Budgeting Basics",
+                    description: "Master the art of budgeting.",
+                    duration: "15 minutes",
+                    lessons: [
+                        { id: 1, title: "Budgeting Essentials", duration: "7 minutes" },
+                        { id: 2, title: "Common Mistakes", duration: "8 minutes" },
+                    ],
+                    hasQuiz: true,
+                },
+                {
+                    title: "Chapter 3: Smart Investments",
+                    description: "Explore smart investment strategies.",
+                    duration: "20 minutes",
+                    lessons: [
+                        { id: 1, title: "Investing 101", duration: "10 minutes" },
+                        { id: 2, title: "Risk Management", duration: "10 minutes" },
+                    ],
+                    hasQuiz: false,
+                },
             ],
         },
-        // other courses...
     ];
+    
 
 
-    // Get the selected course and lesson
-    const course = courses.find((course) => course.id === parseInt(courseId || "0"));
-    const selectedLesson = course
-        ? course.chapters.flatMap((chapter) => chapter.lessons).find((lesson) => lesson.id === lessonId)
-        : null;
+
+
 
     const tabs: Tab[] = [
         {
             label: "Overview",
-            content: course ? (
+            content: (
                 <div className="space-y-2 py-2">
                     <h2 className="text-xl font-bold">Description</h2>
-                    <p className="text-lg font-normal text-gray-600">{course.description}</p>
+                    <p className="text-lg font-normal text-gray-600">
+                        {courses[0].chapters[selectedChapterIdx].description}
+                    </p>
                 </div>
-            ) : (
-                <div className="text-gray-600">Course details not available.</div>
             ),
         },
         {
@@ -234,37 +240,36 @@ function LessonDetails() {
         },
     ];
 
+
     return (
         <div>
-            {/* Breadcrumb */}
-            <nav className="text-lg text-gray-600 px-10 border-b py-4">
-                <Link to="/onboarding/home" className="text-blue-500">
-                    Learning
-                </Link>
-                <span className="mx-2">{'>'}</span>
-                <Link
-                    to={`/onboarding/course-details/${courseId}`}
-                    className="text-blue-500"
-                >
-                    {course?.title || "Course Not Found"}
-                </Link>
-                <span className="mx-2">{'>'}</span>
-                <span>{selectedLesson?.title || "Select a Lesson"}</span>
-            </nav>
+            <div>
+                {/* Breadcrumb */}
+                <nav className="text-lg text-gray-600 px-10 border-b py-4">
+                    <Link to="/onboarding/home" className="">
+                        Learning
+                    </Link>
+                    <span className="mx-2">{'>'}</span>
+                    <span>
+                        Money Matters
+                    </span>
+                    <span className="mx-2">{'>'}</span>
+                    <span>
+                        Money Matters
+                    </span>
+                </nav>
 
-            {/* Main Content */}
-            <div className="flex flex-col lg:flex-row lg:gap-4 lg:mx-2">
-                {/* Video Section */}
-                <div className="rounded-md p-4 flex-1">
-                    {selectedLesson ? (
+                {/* Main Content */}
+                <div className="flex flex-col lg:flex-row lg:gap-4 lg:mx-2">
+                    {/* Video Section */}
+                    <div className="rounded-md p-4 flex-1">
+
                         <>
-                            {/* <video
-                                controls
-                                src={`/videos/${lessonId}.mp4`}
-                                className="w-full rounded-lg lg:h-[500px]"
-                            ></video> */}
 
-                            <img src={image.videoimg} className="w-full" />
+                            <div className="w-full h-96">
+
+                            </div>
+
 
                             {/* Tab Navigation */}
                             <div className="py-6">
@@ -289,28 +294,28 @@ function LessonDetails() {
                                 <div>{tabs[activeTab].content}</div>
                             </div>
                         </>
-                    ) : (
-                        <div className="text-gray-600">Select a lesson to watch.</div>
-                    )}
-                </div>
 
-                {/* Course Content */}
-                <aside className="border-l border-[#e9e9e9] lg:w-[500px] h-[700px] overflow-y-scroll">
-                    <div className="flex w-full bg-white flex-col p-4 items-start">
-                        <div className="flex justify-between items-center w-full">
-                            <span className="text-[20px] font-semibold text-[#262626]">
-                                Course content
-                            </span>
-                        </div>
                     </div>
 
-                    <div className="flex w-full flex-col">
-                        <div className="w-full flex flex-col items-start bg-white border-t border-[#e9e9e9]">
-                            <div className="flex flex-col gap-4 h-full w-full ">
-                                {course?.chapters.map((chapter, chapterIdx) => (
+                    {/* Course Content */}
+                    <aside className="border-l border-[#e9e9e9] lg:w-[500px] h-[500px] overflow-y-scroll">
+                        <div className="flex w-full bg-white flex-col p-4 items-start">
+                            <div className="flex justify-between items-center w-full">
+                                <span className="text-[20px] font-semibold text-[#262626]">
+                                    Course content
+                                </span>
+                            </div>
+                        </div>
+
+                        <div className="flex w-full flex-col">
+                            {courses[0].chapters.map((chapter, chapterIdx) => (
+                                <div
+                                    key={chapterIdx}
+                                    onClick={() => setSelectedChapterIdx(chapterIdx)}
+                                    className={`w-full flex flex-col items-start bg-white border-t border-[#e9e9e9]`}
+                                >
                                     <div
-                                        key={chapterIdx}
-                                        className={`flex flex-col justify-between p-6 rounded-md transition ${activeChapterIdx === chapterIdx ? 'bg-blue-100' : ''
+                                        className={`flex flex-col justify-between p-6 rounded-md w-full transition ${activeChapterIdx === chapterIdx ? "bg-blue-100" : ""
                                             }`}
                                     >
                                         {/* Chapter Accordion */}
@@ -334,67 +339,58 @@ function LessonDetails() {
 
                                         {/* Lessons */}
                                         <div
-                                            className={`mt-2 flex flex-col gap-2  ${activeChapterIdx === chapterIdx ? '' : 'hidden'
+                                            className={`mt-2 flex flex-col gap-2 ${activeChapterIdx === chapterIdx ? "" : "hidden"
                                                 }`}
                                         >
-                                            {chapter.lessons.map((lesson) => (
+                                            {chapter.lessons.map((lesson, lessonIdx) => (
                                                 <div
-                                                    key={lesson.id}
-                                                    className={`cursor-pointer py-3 rounded-md flex flex-col ${activeLessonIdx === lesson.id ? 'bg-blue-100' : ''
-                                                        }`}
-                                                    onClick={() => toggleLesson(lesson.id)}
+                                                    key={lessonIdx}
+                                                    className={`cursor-pointer py-3 rounded-md flex flex-col`}
                                                 >
-                                                    <>
-                                                        <div>
-                                                            <div className="flex items-center gap-2">
-                                                                <div className="w-5 h-5 border-4 border-gray-500 rounded-full flex items-center justify-center cursor-pointer">
-                                                                    <span className="w-3 h-3  rounded-full"></span>
-                                                                </div>
-                                                                <span className="text-md font-semibold text-[#1e1e1e]">{lesson.title}</span>
+                                                    <div>
+                                                        <div className="flex items-center gap-2">
+                                                            <div className="w-5 h-5 border-4 border-gray-500 rounded-full flex items-center justify-center cursor-pointer">
+                                                                <span className="w-3 h-3 rounded-full"></span>
                                                             </div>
-
-                                                            <div className="ml-8 flex items-center gap-1">
-                                                                <img src={image.movie} />
-                                                                <span className="text-gray-600  ">{lesson.duration}</span>
-
-                                                            </div>
-
+                                                            <span className="text-md font-semibold text-[#1e1e1e]">
+                                                                {lesson.title}
+                                                            </span>
                                                         </div>
 
-
-
-
-                                                    </>
-
-
-
-
-                                                </div>
-
-
-                                            ))}
-                                            {chapter.hasQuiz && (
-                                                <div onClick={() => navigate('/onboarding/home/quiz')} className="flex items-center gap-2 cursor-pointer">
-                                                    <div className="w-5 h-5 border-4 border-gray-500 rounded-full flex items-center justify-center cursor-pointer">
-                                                        <span className="w-3 h-3  rounded-full"></span>
+                                                        <div className="ml-8 flex items-center gap-1">
+                                                            <img src={image.movie} alt="icon" />
+                                                            <span className="text-gray-600">{lesson.duration}</span>
+                                                        </div>
                                                     </div>
-                                                    <span className="text-md font-semibold text-[#1e1e1e]">Quiz</span>
                                                 </div>
+                                            ))}
 
+                                            {chapter.hasQuiz && (
+                                                <div className="flex items-center gap-2">
+                                                    <div className="w-5 h-5 border-4 border-gray-500 rounded-full flex items-center justify-center cursor-pointer">
+                                                        <span className="w-3 h-3 rounded-full"></span>
+                                                    </div>
+                                                    <span className="text-md font-semibold text-[#1e1e1e]">
+                                                        Quiz
+                                                    </span>
+                                                </div>
                                             )}
                                         </div>
                                     </div>
-                                ))}
-                            </div>
+                                </div>
+                            ))}
                         </div>
-                    </div>
-                </aside>
+                    </aside>
 
 
 
+                </div>
             </div>
+
+
+
         </div>
-    );
+    )
 }
 
-export default LessonDetails;
+export default Quiz

@@ -44,6 +44,9 @@ import moneymaking from './moneymaking.png'
 import notification from './notifications.png'
 import profile_icon from './profile_icon.png'
 import gift from './Gift.png'
+import videoimg from './videoimg.png'
+import progressicon from './progress-icon.png'
+import movie from './movie.png'
 
 export const image = {
     ingenium_logo,
@@ -91,5 +94,9 @@ export const image = {
     moneymaking,
     notification,
     profile_icon,
-    gift
+    gift,
+    videoimg,
+    progressicon,
+    movie
+
 }
