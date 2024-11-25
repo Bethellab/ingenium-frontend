@@ -101,13 +101,13 @@ const Navbar = () => {
         <div className='flex items-center gap-4 relative'>
 
           <div className="relative flex items-center gap-4">
-            <img src={image.notification} alt="Notification Icon"   className="hidden lg:flex" />
+            <img src={image.notification} alt="Notification Icon"   className="hidden lg:block" />
             <img
               src={image.profile_icon}
               alt="Profile Icon"
               className="hidden lg:flex"
             />
-            <div onClick={toggleDropdown} className="cursor-pointer">
+            <div onClick={toggleDropdown} className="cursor-pointer hidden lg:block">
               <FaChevronDown />
             </div>
 
