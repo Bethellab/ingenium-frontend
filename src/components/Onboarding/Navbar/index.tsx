@@ -144,6 +144,10 @@ const Navbar = () => {
               <NavLink onClick={() => setShowMenu(false)} to='/onboarding/courses'><p className='px-4 py-2 rounded-full inline-block'>Courses</p></NavLink>
               <NavLink onClick={() => setShowMenu(false)} to='/onboarding/mylearning'><p className='px-4 py-2 rounded-full inline-block'>My Learning</p></NavLink>
               <NavLink onClick={() => setShowMenu(false)} to="/onboarding/home"><p className='px-4 py-2 rounded-full inline-block'>Home</p></NavLink>
+              <NavLink onClick={() => setShowMenu(false)} to="/onboarding/affiliaties" className="p-2 hover:bg-gray-100 cursor-pointer flex items-center gap-2">
+                    <FaHandshake className="text-gray-500" />
+                    Affiliates
+                  </NavLink>
               <button className='bg-primary py-2 px-4 rounded-full text-white'>Get Started</button>
             </ul>
           </div>
