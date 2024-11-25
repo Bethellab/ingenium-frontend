@@ -4,6 +4,7 @@ import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import { useState } from "react";
 import CourseQuestions from "./CourseQuestion";
 import { image } from "@/assets/image/image";
+import QuizApp from "./QuizApp";
 
 const Quiz = () => {
 
@@ -80,7 +81,7 @@ const Quiz = () => {
             ],
         },
     ];
-    
+
 
 
 
@@ -266,7 +267,9 @@ const Quiz = () => {
 
                         <>
 
-                            <div className="w-full h-96">
+                            <div className="w-full">
+                               <QuizApp />
+
 
                             </div>
 
