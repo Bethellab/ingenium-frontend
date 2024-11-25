@@ -218,7 +218,7 @@ const TechCourseDetails = () => {
 
 
                         <div>
-                            <div className="flex flex-col lg:w-[396px] p-4 gap-5 items-start bg-white rounded-lg border border-gray-300 relative overflow-hidden mx-auto mt-6">
+                            <div className="flex flex-col lg:w-[396px] w-full p-4 gap-5 items-start bg-white rounded-lg border border-gray-300 relative overflow-hidden mx-auto mt-6">
                                 <button className="flex flex-col gap-4 items-start self-stretch border-none pointer">
                                     <div className="flex justify-center items-center w-full bg-blue-600 rounded-lg p-3 relative">
                                         <div className="flex gap-2 items-center">
