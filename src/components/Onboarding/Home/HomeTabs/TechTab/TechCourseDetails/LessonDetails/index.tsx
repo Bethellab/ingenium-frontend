@@ -95,7 +95,7 @@ function LessonDetails() {
         {
             label: "Q&A", content:
 
-                <div className=" py-8  mx-24">
+                <div className=" py-8 mx-2 lg:mx-24">
 
                     <div className="w-full  ">
                         <div className="flex justify-center items-center ">
@@ -121,7 +121,7 @@ function LessonDetails() {
 
 
                     </div>
-                    <div className="flex gap-4 py-4">
+                    <div className="flex flex-col lg:flex-row gap-4 py-4">
                         {/* Filters Section */}
                         <div className="flex items-center gap-2">
                             <span className="text-md font-medium">Filters:</span>
