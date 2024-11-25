@@ -21,7 +21,7 @@ const Tabs: React.FC = () => {
   return (
     <div className=" mt-4">
       {/* Tab Header */}
-      <div className="flex border-b border-gray-300">
+      <div className="flex border-b border-gray-300 overflow-x-scroll">
         {tabs.map((tab, index) => (
           <button
             key={index}
