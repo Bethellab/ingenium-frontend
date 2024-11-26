@@ -93,7 +93,7 @@ const UploadVideo: React.FC = () => {
 
             if (selectedLessonType === 'Video') {
                 // Add a new video lesson
-                const newLessonName = `Video Lesson ${chapter.lessons.length + 1}`;
+                const newLessonName = ` Lesson ${chapter.lessons.length + 1}`;
                 chapter.lessons.push(newLessonName);
             } else if (selectedLessonType === 'Quiz') {
                 // Add a new quiz
@@ -143,22 +143,31 @@ const UploadVideo: React.FC = () => {
             </div>
 
             <div className='mt-10'>
-                <div className=" bg-cover bg-center w-full  h-[45vh] rounded-md   " style={{ backgroundImage: `url(${image.uploadvideobg})` }}>
-                    <div className='flex flex-col  items-center'>
-                        <div className='mt-28'>
-                            <h2 className='text-center text-white text-2xl font-semibold'>Money matters 💸</h2>
-                            <p className='text-gray-200'>Master the Art of Money: From Earning to Investing.</p>
+                <div
+                    className="bg-cover bg-center w-full h-[45vh] lg:h-[50vh] rounded-md"
+                    style={{ backgroundImage: `url(${image.uploadvideobg})` }}
+                >
+                    <div className="flex flex-col items-center">
+                        <div className="mt-20 sm:mt-28 px-4">
+                            <h2 className="text-center text-white text-2xl sm:text-3xl font-semibold">
+                                Money matters 💸
+                            </h2>
+                            <p className="text-gray-200 text-sm sm:text-base">
+                                Master the Art of Money: From Earning to Investing.
+                            </p>
                         </div>
-
                     </div>
 
                     <div>
-                        <div className='flex items-end justify-end gap-4 mt-16 lg:mt-28 mx-4'>
-                            <button className="bg-white border rounded-md  px-2 py-2  ">Upload cover image</button>
-                            <button className="bg-white border rounded-md  px-2 py-2 ">Randomize image</button>
+                        <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-end gap-4 mt-16 sm:mt-20 mx-4">
+                            <button className="bg-white border rounded-md px-4 py-2 text-sm sm:text-base">
+                                Upload cover image
+                            </button>
+                            <button className="bg-white border rounded-md px-4 py-2 text-sm sm:text-base">
+                                Randomize image
+                            </button>
                         </div>
                     </div>
-
                 </div>
 
 
@@ -170,14 +179,14 @@ const UploadVideo: React.FC = () => {
                         <div className="rounded-md p-4 flex-1">
                             <div className="space-y-3">
                                 {/* Header */}
-                                <div className="flex justify-between items-center w-full py-3 flex-wrap">
-                                    <span className="text-2xl font-medium text-gray-900 tracking-[-0.2px]">Chapters</span>
+                                <div className="flex justify-between items-center w-full py-3 flex-wrap gap-2">
+                                    <span className="text-lg sm:text-2xl font-medium text-gray-900 tracking-[-0.2px]">Chapters</span>
                                     <button
-                                        className="flex px-3 py-1 gap-2 justify-center items-center bg-white rounded-md border border-gray-300 mt-2 sm:mt-0"
+                                        className="flex px-3 py-1 gap-2 justify-center items-center bg-white rounded-md border border-gray-300"
                                         onClick={addChapter}
                                     >
                                         <img src={image.add} className="w-4 h-4" />
-                                        <span className="text-md font-medium text-gray-900">New Chapter</span>
+                                        <span className="text-sm sm:text-md font-medium text-gray-900">New Chapter</span>
                                     </button>
                                 </div>
 
@@ -185,7 +194,7 @@ const UploadVideo: React.FC = () => {
                                 <div className="w-full flex flex-col gap-3 py-3 px-2 bg-gray-50 rounded-lg border border-gray-300">
                                     {chapters.map((chapter, chapterIndex) => (
                                         <div key={chapterIndex}>
-                                            <div className="flex justify-between items-center w-full py-2 px-2 border-b">
+                                            <div className="flex justify-between items-center w-full py-2 px-2 border-b flex-wrap gap-2">
                                                 <div className="flex gap-4 items-center">
                                                     <img src={image.drag_indicator} className="w-5 h-5" />
                                                     <div className="flex gap-5 items-center">
@@ -196,7 +205,7 @@ const UploadVideo: React.FC = () => {
                                                                 transform: chapter.isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
                                                             }}
                                                         />
-                                                        <span className="text-lg font-medium text-gray-900 tracking-[-0.2px]">
+                                                        <span className="text-sm sm:text-lg font-medium text-gray-900 tracking-[-0.2px]">
                                                             {chapter.title}
                                                         </span>
                                                     </div>
@@ -226,13 +235,13 @@ const UploadVideo: React.FC = () => {
                                                             <img src={image.drag_indicator} className="w-5 h-5" />
                                                             <div
                                                                 className="flex gap-2 items-center cursor-pointer"
-                                                                onClick={() => handleLessonClick(lesson, 'Video')}  // Pass lesson name and type
+                                                                onClick={() => handleLessonClick(lesson, 'Video')}
                                                             >
                                                                 <img
-                                                                    src={image.movie_info} // Use different icons for videos and quizzes
+                                                                    src={image.movie_info}
                                                                     className="w-5 h-5"
                                                                 />
-                                                                <span className="text-lg font-normal text-gray-900">
+                                                                <span className="text-sm sm:text-lg font-normal text-gray-900">
                                                                     {lesson}
                                                                 </span>
                                                             </div>
@@ -246,22 +255,18 @@ const UploadVideo: React.FC = () => {
                                                             <img src={image.drag_indicator} className="w-5 h-5" />
                                                             <div
                                                                 className="flex gap-2 items-center cursor-pointer"
-                                                                onClick={() => handleLessonClick(quiz, 'Quiz')}  // Quiz type
+                                                                onClick={() => handleLessonClick(quiz, 'Quiz')}
                                                             >
                                                                 <img
-                                                                    src={image.movie_info} // Use different icons for videos and quizzes
+                                                                    src={image.movie_info}
                                                                     className="w-5 h-5"
                                                                 />
-
-                                                                <span className="text-lg font-normal text-gray-900">{quiz}</span>
+                                                                <span className="text-sm sm:text-lg font-normal text-gray-900">{quiz}</span>
                                                             </div>
                                                         </div>
                                                     ))}
-
                                                 </div>
                                             )}
-
-
 
                                             {/* Add lesson button */}
                                             <button
@@ -269,85 +274,82 @@ const UploadVideo: React.FC = () => {
                                                 onClick={() => addLesson(chapterIndex)}
                                             >
                                                 <img src={image.add} className="w-4 h-4" />
-                                                <span className="text-sm font-medium text-gray-900">New Lesson</span>
+                                                <span className="text-xs sm:text-sm font-medium text-gray-900">New Lesson</span>
                                             </button>
                                         </div>
                                     ))}
                                 </div>
 
-                                {/* Add Chapter Button */}
-                                <button
-                                    className="flex w-full h-8 px-3 py-1 gap-2 justify-center items-center bg-opacity-20 bg-white rounded-md border border-gray-300 shadow-inner mt-4"
-                                    onClick={addChapter}
-                                >
-                                    <img src={image.add} className="w-4 h-4" />
-                                    <span className="text-sm font-medium text-gray-900">New Chapter</span>
-                                </button>
-                            </div>
-
-                            {/* Modal for adding a lesson */}
-                            {isModalOpen && (
-                                <div className="fixed inset-0 flex justify-center items-center bg-gray-500 bg-opacity-50">
-                                    <div className="bg-white p-6 rounded-lg shadow-lg lg:w-[600px] w-11/12">
-                                        <div className="mb-5">
-                                            <h2 className="text-2xl font-medium text-gray-900">New lesson</h2>
-                                            <p>Select the type of lesson you'd like to offer</p>
-                                        </div>
-
-                                        <div className="space-y-4">
-                                            <div className="border p-3 rounded-md">
-                                                <label className="flex items-center space-x-2" onClick={() => setSelectedLessonType('Video')}>
-                                                    <input
-                                                        type="radio"
-                                                        name="lessonType"
-                                                        value="Video"
-
-                                                        className="form-radio"
-                                                    />
-                                                    <div className="flex flex-col">
-                                                        <span className="text-xl">Video</span>
-                                                        <p className="text-gray-600">Offer your users a video to watch</p>
-                                                    </div>
-                                                </label>
+                                {/* Modal for adding a lesson */}
+                                {isModalOpen && (
+                                    <div className="fixed inset-0 flex justify-center items-center bg-gray-500 bg-opacity-50">
+                                        <div className="bg-white p-6 rounded-lg shadow-lg w-11/12 sm:w-[600px]">
+                                            <div className="mb-5">
+                                                <h2 className="text-lg sm:text-2xl font-medium text-gray-900">New Lesson</h2>
+                                                <p>Select the type of lesson you'd like to offer</p>
                                             </div>
 
-                                            <div className="border p-3 rounded-md">
-                                                <label className="flex items-center space-x-2" onClick={() => setSelectedLessonType('Quiz')}>
-                                                    <input
-                                                        type="radio"
-                                                        name="lessonType"
-                                                        value="Quiz"
-
-                                                        className="form-radio"
-                                                    />
-                                                    <div className="flex flex-col">
-                                                        <span className="text-xl">Quiz</span>
-                                                        <p className="text-gray-600">
-                                                            Assess knowledge by asking questions and returning a grade
-                                                        </p>
-                                                    </div>
-                                                </label>
+                                            <div className="space-y-4">
+                                                <div className="border p-3 rounded-md">
+                                                    <label
+                                                        className="flex items-center space-x-2"
+                                                        onClick={() => setSelectedLessonType('Video')}
+                                                    >
+                                                        <input
+                                                            type="radio"
+                                                            name="lessonType"
+                                                            value="Video"
+                                                            className="form-radio"
+                                                        />
+                                                        <div className="flex flex-col">
+                                                            <span className="text-sm sm:text-xl">Video</span>
+                                                            <p className="text-gray-600 text-xs sm:text-sm">
+                                                                Offer your users a video to watch
+                                                            </p>
+                                                        </div>
+                                                    </label>
+                                                </div>
+                                                <div className="border p-3 rounded-md">
+                                                    <label
+                                                        className="flex items-center space-x-2"
+                                                        onClick={() => setSelectedLessonType('Quiz')}
+                                                    >
+                                                        <input
+                                                            type="radio"
+                                                            name="lessonType"
+                                                            value="Quiz"
+                                                            className="form-radio"
+                                                        />
+                                                        <div className="flex flex-col">
+                                                            <span className="text-sm sm:text-xl">Quiz</span>
+                                                            <p className="text-gray-600 text-xs sm:text-sm">
+                                                                Assess knowledge by asking questions and returning a grade
+                                                            </p>
+                                                        </div>
+                                                    </label>
+                                                </div>
                                             </div>
-                                        </div>
 
-                                        <div className="flex justify-between mt-6">
-                                            <button
-                                                onClick={handleCancel}
-                                                className="px-4 py-2 bg-gray-200 rounded-md text-gray-800"
-                                            >
-                                                Cancel
-                                            </button>
-                                            <button
-                                                onClick={handleCreateLesson}
-                                                className="px-4 py-2 bg-blue-600 rounded-md text-white"
-                                            >
-                                                Create Lesson
-                                            </button>
+                                            <div className="flex justify-between mt-6">
+                                                <button
+                                                    onClick={handleCancel}
+                                                    className="px-4 py-2 bg-gray-200 rounded-md text-gray-800"
+                                                >
+                                                    Cancel
+                                                </button>
+                                                <button
+                                                    onClick={handleCreateLesson}
+                                                    className="px-4 py-2 bg-blue-600 rounded-md text-white"
+                                                >
+                                                    Create Lesson
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            )}
+                                )}
+                            </div>
                         </div>
+
                     </div>
 
 

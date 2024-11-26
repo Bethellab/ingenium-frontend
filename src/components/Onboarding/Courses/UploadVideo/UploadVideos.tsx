@@ -51,11 +51,11 @@ const UploadVideos = () => {
                     <>
                         <div className="w-full max-w-xs ">
                             <div className="flex flex-col justify-center items-center ">
-                            <img src={image.movie} alt="Movie upload" className="w-4 h-4" />
-                            <h2 className="text-xl font-semibold">Upload a video...</h2>
+                                <img src={image.movie} alt="Movie upload" className="w-4 h-4" />
+                                <h2 className="text-xl font-semibold">Upload a video...</h2>
 
                             </div>
-                       
+
                             <div className="relative pt-1">
                                 <div className="flex mb-2 items-center justify-between ">
                                     <div>
@@ -86,32 +86,35 @@ const UploadVideos = () => {
                         <p className="text-gray-600">Please use .mp4, .mov, .mpeg, or .webm.</p>
 
                         {/* Hidden file input */}
-                        <input
-                            type="file"
-                            accept=".mp4,.mov,.mpeg,.webm"
-                            onChange={handleFileChange}
-                            
-                            id="fileInput"
-                        />
+                        <div className="flex flex-col justify-center items-center">
+                            {/* Hidden input field for file selection */}
+                            <input
+                                type="file"
+                                accept=".mp4,.mov,.mpeg,.webm"
+                                onChange={handleFileChange}
+                                id="fileInput"
+                                 // Hides the input field
+                            />
 
-                        {/* Upload button that triggers file input */}
-                        <label htmlFor="fileInput">
-                            <button
-                                type="button"
-                                className="py-2 px-2 border rounded-md mt-4"
-                                disabled={uploading || !file}
-                                onClick={handleUpload}
-                            >
-                                {uploading ? "Uploading..." : "Upload File"}
-                            </button>
-                        </label>
+                            {/* Button that triggers the file input */}
+                            <label htmlFor="fileInput">
+                                <button
+                                    type="button"
+                                    className="py-2 px-4 border rounded-md mt-4 bg-blue-500 text-white hover:bg-blue-600 disabled:bg-gray-400"
+                                    disabled={uploading || !file}
+                                    onClick={handleUpload}
+                                >
+                                    {uploading ? "Uploading..." : "Upload File"}
+                                </button>
+                            </label>
+                        </div>
                     </>
                 )}
             </div>
 
             <div>
                 <TextEditor />
-            </div>     
+            </div>
         </div>
     );
 };
