@@ -6,7 +6,7 @@ const AffiliatesTab = () => {
     const navigate = useNavigate()
     return (
         <div className="flex justify-center items-center">
-            <div className="flex justify-center w-full lg:w-[600px] p-6 flex-col gap-6 lg:mt-16">
+            <div className="flex justify-center w-full lg:w-[600px] p-6 flex-col gap-6 lg:mt-16 mx-4">
                 <div className="flex items-center flex-col gap-2">
                     <img src={image.gift} alt="Teaching" />
                     <span className="text-2xl font-semibold text-center lg:whitespace-nowrap">

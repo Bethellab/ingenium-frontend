@@ -18,6 +18,7 @@ import Affiliates from "@/components/Onboarding/Affiliates";
 import AddNewAffiliate from "@/components/Onboarding/Affiliates/AddNewAffiliate";
 import AffiliateList from "@/components/Onboarding/Affiliates/AffiliateList/AffliateList";
 import Quiz from "@/components/Onboarding/Home/HomeTabs/TechTab/TechCourseDetails/LessonDetails/Quiz";
+import UploadVideo from "@/components/Onboarding/Courses/UploadVideo";
 // import LoginForm from "@/components/SignIn/LoginForm";
 
 
@@ -37,6 +38,7 @@ const router = createBrowserRouter([
       { path: "/onboarding/home/course/:courseId/lesson/:lessonId", element: <LessonDetails /> },
       { path: "courses", element: <Courses /> },
       { path: "/onboarding/courses/analytics", element: <Analytics /> },
+      { path: "/onboarding/courses/uploadvideo", element: <UploadVideo /> },
       { path: "mylearning", element: <Learning /> },
       { path: "/onboarding/mylearning/learning", element: <LearningCourse /> },
       { path: "affiliaties", element: <Affiliates/> },

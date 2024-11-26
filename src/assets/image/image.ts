@@ -47,6 +47,15 @@ import gift from './Gift.png'
 import videoimg from './videoimg.png'
 import progressicon from './progress-icon.png'
 import movie from './movie.png'
+import check_circle from './check_circle.png'
+import uploadvideobg from './vishal-bansal.png'
+
+import add from './add_2.png'
+
+import drag_indicator from './drag_indicator.png'
+import delete_icon from './delete.png'
+import movie_info from './movie_info.png'
+
 
 export const image = {
     ingenium_logo,
@@ -97,6 +106,12 @@ export const image = {
     gift,
     videoimg,
     progressicon,
-    movie
+    movie,
+    check_circle,
+    uploadvideobg,
+    delete_icon,
+    add,
+    drag_indicator,
+    movie_info
 
 }
