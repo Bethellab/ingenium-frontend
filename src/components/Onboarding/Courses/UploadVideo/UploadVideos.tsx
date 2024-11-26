@@ -49,11 +49,15 @@ const UploadVideos = () => {
                 {/* If uploading, show the progress bar */}
                 {uploading ? (
                     <>
-                        <div className="w-full max-w-xs flex flex-col items-center">
-                        <img src={image.movie} alt="Movie upload" />
-                        <h2 className="text-xl font-semibold">Upload a video...</h2>
+                        <div className="w-full max-w-xs ">
+                            <div className="flex flex-col justify-center items-center ">
+                            <img src={image.movie} alt="Movie upload" className="w-4 h-4" />
+                            <h2 className="text-xl font-semibold">Upload a video...</h2>
+
+                            </div>
+                       
                             <div className="relative pt-1">
-                                <div className="flex mb-2 items-center justify-between">
+                                <div className="flex mb-2 items-center justify-between ">
                                     <div>
                                         <span className="font-semibold text-xs text-blue-600">
                                             {Math.round(uploadProgress)}%
@@ -63,7 +67,7 @@ const UploadVideos = () => {
                                 <div className="flex mb-2 w-full bg-gray-200 rounded">
                                     <div
                                         style={{ width: `${uploadProgress}%` }}
-                                        className="bg-blue-600 text-xs leading-none py-1 text-center text-white rounded"
+                                        className="bg-blue-600 text-xs leading-none py-1 text-center   text-white rounded"
                                     ></div>
                                 </div>
                             </div>

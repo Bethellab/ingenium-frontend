@@ -16,11 +16,12 @@ const ToggleSwitch = () => (
 
 
 // Define types for chapter and lesson data
-interface Chapter {
+type Chapter = {
     title: string;
-    lessons: string[];
+    lessons: string[];  // For video lessons
+    quizzes: string[];  // For quizzes
     isOpen: boolean;
-}
+};
 
 
 
@@ -28,28 +29,31 @@ const UploadVideo: React.FC = () => {
 
     // State to hold chapters and lessons
     const [chapters, setChapters] = useState<Chapter[]>([
-        { title: 'Chapter 1', lessons: ['Lesson 1', 'Lesson 2'], isOpen: true },
+        { title: 'Chapter 1', lessons: ['Lesson 1', 'Lesson 2'], quizzes: ['Quiz'], isOpen: true },
     ]);
 
 
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
     const [showLessonType, setShowLessonType] = useState<boolean>(false);
     const [selectedLessonType, setSelectedLessonType] = useState<string>('Video');
+    const [selectedQuizType, setSelectedQuizType] = useState<string>('Quiz');
     const [currentChapterIndex, setCurrentChapterIndex] = useState<number | null>(null);
     const [selectedLesson, setSelectedLesson] = useState<string | null>(null);
 
 
-    const handleLessonClick = (lesson: string) => {
-        setSelectedLesson(lesson); // Track selected lesson
-        setShowLessonType(true); // Show the lesson type
+    const handleLessonClick = (lesson: string, type: string) => {
+        setSelectedLesson(lesson);  // Track selected lesson
+        setShowLessonType(true);  // Show the lesson type
+        setSelectedLessonType(type);  // Set the lesson type (either 'Video' or 'Quiz')
     };
 
 
     // Add a new chapter
+    // Add a new chapter
     const addChapter = (): void => {
         setChapters([
             ...chapters,
-            { title: `Chapter ${chapters.length + 1}`, lessons: [], isOpen: false },
+            { title: `Chapter ${chapters.length + 1}`, lessons: [], quizzes: [], isOpen: false },
         ]);
     };
 
@@ -72,9 +76,9 @@ const UploadVideo: React.FC = () => {
     };
 
     // Handle lesson type change
-    const handleLessonTypeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setSelectedLessonType(event.target.value);
-    };
+    // const handleLessonTypeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    //     setSelectedLessonType(event.target.value);
+    // };
 
     // Handle modal cancellation
     const handleCancel = () => {
@@ -85,14 +89,25 @@ const UploadVideo: React.FC = () => {
     const handleCreateLesson = () => {
         if (currentChapterIndex !== null) {
             const newChapters = [...chapters];
-            // Generate new lesson name based on the existing lessons count
-            // const newLessonName = `${selectedLessonType} Lesson ${newChapters[currentChapterIndex].lessons.length + 1}`;
-            const newLessonName = ` Lesson ${newChapters[currentChapterIndex].lessons.length + 1}`;
-            newChapters[currentChapterIndex].lessons.push(newLessonName); // Add new lesson to the chapter
-            setChapters(newChapters); // Update chapters state
-            setIsModalOpen(false); // Close the modal after creating the lesson
+            const chapter = newChapters[currentChapterIndex];
+
+            if (selectedLessonType === 'Video') {
+                // Add a new video lesson
+                const newLessonName = `Video Lesson ${chapter.lessons.length + 1}`;
+                chapter.lessons.push(newLessonName);
+            } else if (selectedLessonType === 'Quiz') {
+                // Add a new quiz
+                const newQuizName = `Quiz`;
+                chapter.quizzes.push(newQuizName);  // Make sure to have 'quizzes' array
+            }
+
+            setChapters(newChapters);  // Update the chapters state
+            setIsModalOpen(false);  // Close the modal
+            setSelectedLessonType('Video');  // Reset lesson type
+            setSelectedQuizType('Quiz');  // Reset quiz type
         }
     };
+
     return (
         <div>
 
@@ -211,15 +226,42 @@ const UploadVideo: React.FC = () => {
                                                             <img src={image.drag_indicator} className="w-5 h-5" />
                                                             <div
                                                                 className="flex gap-2 items-center cursor-pointer"
-                                                                onClick={() => handleLessonClick(lesson)}
+                                                                onClick={() => handleLessonClick(lesson, 'Video')}  // Pass lesson name and type
                                                             >
-                                                                <img src={image.movie_info} className="w-5 h-5" />
-                                                                <span className="text-lg font-normal text-gray-900">{lesson}</span>
+                                                                <img
+                                                                    src={image.movie_info} // Use different icons for videos and quizzes
+                                                                    className="w-5 h-5"
+                                                                />
+                                                                <span className="text-lg font-normal text-gray-900">
+                                                                    {lesson}
+                                                                </span>
                                                             </div>
                                                         </div>
                                                     ))}
+                                                    {chapter.quizzes.map((quiz, quizIndex) => (
+                                                        <div
+                                                            key={quizIndex}
+                                                            className="flex gap-3 items-center py-2 px-2 w-full rounded-lg"
+                                                        >
+                                                            <img src={image.drag_indicator} className="w-5 h-5" />
+                                                            <div
+                                                                className="flex gap-2 items-center cursor-pointer"
+                                                                onClick={() => handleLessonClick(quiz, 'Quiz')}  // Quiz type
+                                                            >
+                                                                <img
+                                                                    src={image.movie_info} // Use different icons for videos and quizzes
+                                                                    className="w-5 h-5"
+                                                                />
+
+                                                                <span className="text-lg font-normal text-gray-900">{quiz}</span>
+                                                            </div>
+                                                        </div>
+                                                    ))}
+
                                                 </div>
                                             )}
+
+
 
                                             {/* Add lesson button */}
                                             <button
@@ -254,13 +296,12 @@ const UploadVideo: React.FC = () => {
 
                                         <div className="space-y-4">
                                             <div className="border p-3 rounded-md">
-                                                <label className="flex items-center space-x-2">
+                                                <label className="flex items-center space-x-2" onClick={() => setSelectedLessonType('Video')}>
                                                     <input
                                                         type="radio"
                                                         name="lessonType"
                                                         value="Video"
-                                                        checked={selectedLessonType === 'Video'}
-                                                        onChange={handleLessonTypeChange}
+
                                                         className="form-radio"
                                                     />
                                                     <div className="flex flex-col">
@@ -271,13 +312,12 @@ const UploadVideo: React.FC = () => {
                                             </div>
 
                                             <div className="border p-3 rounded-md">
-                                                <label className="flex items-center space-x-2">
+                                                <label className="flex items-center space-x-2" onClick={() => setSelectedLessonType('Quiz')}>
                                                     <input
                                                         type="radio"
                                                         name="lessonType"
                                                         value="Quiz"
-                                                        checked={selectedLessonType === 'Quiz'}
-                                                        onChange={handleLessonTypeChange}
+
                                                         className="form-radio"
                                                     />
                                                     <div className="flex flex-col">
@@ -352,30 +392,23 @@ const UploadVideo: React.FC = () => {
                                 <p className="text-xl mb-2">
                                     {selectedLesson}
                                 </p>
-                                <div >
-
-
-                                    <div className="flex flex-col gap-4 ">
-
-
+                                <div>
+                                    <div className="flex flex-col gap-4">
+                                        {/* Check for selected lesson type */}
                                         {selectedLessonType === 'Video' ? (
-                                            <div className="p-4 bg-white rounded-[16px]  border-[#d9d9d9] lg:w-[750px]  lg:h-[300px] ">
-                                                <UploadVideos />
+                                            <div className="p-4 bg-white rounded-[16px] border-[#d9d9d9] lg:w-[750px] lg:h-[300px]">
+                                                <UploadVideos /> {/* Component for handling video uploads */}
                                             </div>
-                                        ) : selectedLessonType === 'Quiz' ? (
-                                            <div className=" w-auto lg:w-[750px] lg:h-[300px] ">
-                                                <UploadQuiz />
-
-
+                                        ) : selectedQuizType === 'Quiz' ? (
+                                            <div className="w-auto lg:w-[750px] lg:h-[300px]">
+                                                <UploadQuiz /> {/* Component for handling quiz uploads */}
                                             </div>
                                         ) : (
-                                            <div className=" p-[24px] flex flex-col gap-4 items-start bg-white rounded-[16px] border border-[#d9d9d9] ">
+                                            <div className="p-[24px] flex flex-col gap-4 items-start bg-white rounded-[16px] border border-[#d9d9d9]">
+                                                {/* Default fallback for other lesson settings */}
                                                 {/* Header */}
-                                                <div >
-                                                    <h1 className="text-[24px] font-medium">
-                                                        Settings
-                                                    </h1>
-
+                                                <div>
+                                                    <h1 className="text-[24px] font-medium">Settings</h1>
                                                 </div>
 
                                                 {/* Content */}
@@ -397,9 +430,7 @@ const UploadVideo: React.FC = () => {
                                         )}
                                     </div>
                                 </div>
-
                             </div>
-
                         )}
 
 
