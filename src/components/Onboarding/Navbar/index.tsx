@@ -25,10 +25,10 @@ const Navbar = () => {
 
   return (
     <div className=' text-sm py-2 mb-2 border-b  '>
-      <div className='bg-white flex items-center justify-between gap-6 py-2 px-2 rounded-full mx-6 lg:mx-6'>
+      <div className='bg-white flex items-center justify-between gap-6 py-2 px-2 rounded-full mx-8 lg:mx-6'>
         <div className='flex justify-center items-center gap-6'>
           <img onClick={() => navigate('/onboarding')} className='w-28 cursor-pointer' src={image.signinlogo} />
-          <input type="Search" placeholder='search' className='bg-gray-200 outline-none rounded-lg py-2 px-2 hiden lg:block' />
+          <input type="Search" placeholder='search' className='bg-gray-200 outline-none rounded-lg py-2 px-2 hidden lg:block' />
         </div>
 
         <ul className='hidden xl:flex items-start gap-2  text-lg mr-80'>
