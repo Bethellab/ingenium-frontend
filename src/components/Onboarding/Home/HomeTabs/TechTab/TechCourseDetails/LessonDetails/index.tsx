@@ -295,7 +295,7 @@ function LessonDetails() {
                 </div>
 
                 {/* Course Content */}
-                <aside className="border-l border-[#e9e9e9] lg:w-[500px] h-[700px] overflow-y-scroll">
+                <aside className="border-l border-[#e9e9e9] lg:w-[500px]  overflow-y-scroll">
                     <div className="flex w-full bg-white flex-col p-4 items-start">
                         <div className="flex justify-between items-center w-full">
                             <span className="text-[20px] font-semibold text-[#262626]">
@@ -304,7 +304,7 @@ function LessonDetails() {
                         </div>
                     </div>
 
-                    <div className="flex w-full flex-col">
+                    <div className="flex w-full flex-col h-[700px] overflew-y-scroll">
                         <div className="w-full flex flex-col items-start bg-white border-t border-[#e9e9e9]">
                             <div className="flex flex-col gap-4 h-full w-full ">
                                 {course?.chapters.map((chapter, chapterIdx) => (

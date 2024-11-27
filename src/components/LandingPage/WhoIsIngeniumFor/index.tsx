@@ -4,7 +4,7 @@ import { image } from "@/assets/image/image"
 const WhoIsIngeniumFor = () => {
     return (
         <div>
-            <div className='flex flex-col gap-10 items-center mt-24'>
+            <div className='flex flex-col gap-10 items-center mt-24 w-full'>
                 <div className='flex flex-col gap-4 items-center '>
                     <span className="text-3xl lg:text-[60px] font-medium  text-center whitespace-nowrap ">
                         Who is Ingenium For?

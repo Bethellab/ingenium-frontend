@@ -18,7 +18,7 @@ const brands = [
 
 const BrandSwipe = () => {
   return (
-    <div className="mt-10 md:mt-24 lg:mt-10 bg-[#CCDDED] py-2 px-2 lg:mb-8 rounded-md">
+    <div className="mt-10 md:mt-24 lg:mt-10 bg-[#CCDDED] py-2 px-2 lg:mb-8 rounded-md lg:mx-20">
       <h2 className="text-center text-md  mb-8 text-gray-600">
        Trusted by Leading Companies Worldwide
       </h2>

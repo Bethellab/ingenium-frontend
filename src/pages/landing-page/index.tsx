@@ -21,11 +21,13 @@ function LandingPage() {
       <div className="mx-4 sm:mx-[10%] ">
         <Navbar />
         <Header />
-        <BrandSwipe />
-        <WhoIsIngeniumFor />
-        <WhatIsIngenium />
+       
+     
       </div>
       <div>
+      <BrandSwipe />
+      <WhoIsIngeniumFor />
+      <WhatIsIngenium />
         <Hiring />
         <Elearning />
         <ContentMgmt />

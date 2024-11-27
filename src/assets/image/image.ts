@@ -55,9 +55,13 @@ import add from './add_2.png'
 import drag_indicator from './drag_indicator.png'
 import delete_icon from './delete.png'
 import movie_info from './movie_info.png'
+import circle_tick from './circle_tick.png'
+import progressbar from './progress80.png'
 
 
 export const image = {
+   progressbar,
+    circle_tick,
     ingenium_logo,
     menubar,
     crossbar,

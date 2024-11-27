@@ -263,9 +263,21 @@ const TechCourseDetails = () => {
                     <div className="flex justify-center items-center lg:mx-36 py-10">
                         <div className=" flex flex-col w-full  gap-6">
                             <div className="flex flex-col gap-4 items-center w-full">
-                                <span className="text-2xl font-medium text-[#1e1e1e] text-center">
+                                <span className="text-3xl font-medium text-[#1e1e1e] text-center">
                                     Rate this course
                                 </span>
+
+                                <div className="text-gray-400 flex items-center gap-2">
+                                <FaStar className="w-6 h-6" />
+                                <FaStar className="w-6 h-6" />
+                                <FaStar className="w-6 h-6" />
+                                <FaStar className="w-6 h-6" />
+                                <FaStar className="w-6 h-6" />
+
+                                </div>
+
+                               
+
 
                             </div>
 
