@@ -1,6 +1,7 @@
 import { NavLink, useNavigate } from 'react-router-dom'
 import { image } from '@/assets/image/image'
 import { useState } from 'react'
+import { FaChevronDown } from 'react-icons/fa'
 
 
 const Navbar = () => {
@@ -44,7 +45,7 @@ const Navbar = () => {
 
                     <button onClick={() => navigate('/login')} className='border rounded-full px-2 py-2 whitespace-nowrap'>Sign in</button>
                     
-                    <button  onClick={handleDropdownToggle} className='bg-primary py-2 px-4 rounded-full text-white  whitespace-nowrap'>Get Started</button>
+                    <button  onClick={handleDropdownToggle} className='bg-primary py-2 px-4 rounded-full text-white flex items-center gap-2  whitespace-nowrap'>Get Started <FaChevronDown /></button>
                      {/* Dropdown for Sign in */}
                      {isDropdownOpen && (
                         <div className='absolute right-0 mt-36 w-48 bg-white border rounded-lg shadow-lg z-10'>
