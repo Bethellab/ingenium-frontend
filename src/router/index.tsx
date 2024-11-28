@@ -19,12 +19,17 @@ import AddNewAffiliate from "@/components/Onboarding/Affiliates/AddNewAffiliate"
 import AffiliateList from "@/components/Onboarding/Affiliates/AffiliateList/AffliateList";
 import Quiz from "@/components/Onboarding/Home/HomeTabs/TechTab/TechCourseDetails/LessonDetails/Quiz";
 import UploadVideo from "@/components/Onboarding/Courses/UploadVideo";
-// import LoginForm from "@/components/SignIn/LoginForm";
+import LoginForm from "@/components/SignIn/LoginForm";
+import ForgotPasswordForm from "@/components/SignIn/ForgotPassword";
+
 
 
 const router = createBrowserRouter([
   { path: "/", element: <LandingPage /> },
   { path: "/signup/:userType", element: <SignupForm /> },
+  { path: "/login", element: <LoginForm setFormType={() => {}} /> },
+  { path: "/forgotpassword", element: <ForgotPasswordForm /> },
+  
   { path: "/invite", element: <InviteYourTeamMember /> },
   { path: "/activate", element: <ActivateAccount /> },
   { path: "/chooseyourplan", element: <ChooseYourPlan /> },

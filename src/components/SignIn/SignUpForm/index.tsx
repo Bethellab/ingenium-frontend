@@ -1,14 +1,14 @@
 import { image } from '@/assets/image/image';
-import React, { Dispatch, SetStateAction, useState } from 'react';
+import React, { useState } from 'react';
 import { HiEye, HiEyeOff } from 'react-icons/hi';
 import { useNavigate } from 'react-router-dom';
 
 type SignupFormProps = {
-    setFormType: Dispatch<SetStateAction<'signup' | 'login' | 'forgotPassword'>>;
+
     userType: 'individual' | 'business';
 };
 
-const SignupForm: React.FC<SignupFormProps> = ({ setFormType, userType }) => {
+const SignupForm: React.FC<SignupFormProps> = ({ userType }) => {
     const [formSubmitted, setFormSubmitted] = useState(false);
 
     const navigate = useNavigate()
@@ -152,7 +152,33 @@ const SignupForm: React.FC<SignupFormProps> = ({ setFormType, userType }) => {
                             </div>
                             <p className='text-gray-600'>By submitting this form, you consent to receive emails from Ingenium about various updates, with the option to unsubscribe anytime. For questions, contact <span className='underline font-semibold text-gray-900'>hello@ingenium.com</span> View our <span className='underline font-semibold text-gray-900'>Privacy Policy</span>.</p>
                             <button className="bg-primary text-center w-full py-2 text-white rounded-xl" onClick={handleSubmit}>Continue</button>
-                            <p className="text-center">Already have an account? <span className="text-primary underline cursor-pointer" onClick={() => setFormType('login')}>Log in</span></p>
+                            <p className="text-center">Already have an account? <span className="text-primary underline cursor-pointer" >
+                                {userType === 'individual' && (
+                                    <span
+                                        onClick={() => navigate('/login?userType=individual')}
+                                        className=""
+                                    >
+                                        Log in
+                                    </span>
+
+                                )}
+                                {userType === 'business' && (
+                                    <span
+                                        onClick={() => navigate('/login?userType=business')}
+                                        className=""
+                                    >
+                                        Log in
+                                    </span>
+                                )}
+
+                            </span></p>
+
+
+
+
+
+
+
                         </div>
                     </form>
 

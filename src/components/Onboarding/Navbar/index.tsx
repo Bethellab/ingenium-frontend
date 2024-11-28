@@ -114,18 +114,18 @@ const Navbar = () => {
             {isDropdownOpen && (
               <div className="absolute right-0 mt-52 w-48 bg-white shadow-lg rounded-md p-2">
                 <ul className="text-lg">
-                  <li className="p-2 hover:bg-gray-100 cursor-pointer flex items-center gap-2">
+                  <li onClick={toggleDropdown} className="p-2 hover:bg-gray-100 cursor-pointer flex items-center gap-2">
                     <FaUser className="text-gray-500" />
                     Profile
                   </li>
-                  <NavLink to="/onboarding/affiliaties" className="p-2 hover:bg-gray-100 cursor-pointer flex items-center gap-2">
+                  <NavLink onClick={toggleDropdown} to="/onboarding/affiliaties" className="p-2 hover:bg-gray-100 cursor-pointer flex items-center gap-2">
                     <FaHandshake className="text-gray-500" />
                     Affiliates
                   </NavLink>
-                  <li className="p-2 hover:bg-gray-100 cursor-pointer flex items-center gap-2 text-red-500">
+                  <NavLink onClick={toggleDropdown} to="/"  className="p-2 hover:bg-gray-100 cursor-pointer flex items-center gap-2 text-red-500">
                     <FaSignOutAlt />
                     Logout
-                  </li>
+                  </NavLink>
                 </ul>
               </div>
             )}

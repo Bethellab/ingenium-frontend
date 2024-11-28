@@ -3,7 +3,7 @@ import { image } from "@/assets/image/image"
 
 const Elearning = () => {
     return (
-        <div className=' flex lg:w-[1223px] gap-[79px] items-center  lg:relative  md:mx-auto mt-10 lg:mt-32'>
+        <div id="elearning" className=' flex lg:w-[1223px] gap-[79px] items-center  lg:relative  md:mx-auto mt-10 lg:mt-32'>
 
             <div className='flex flex-col gap-4 items-start mx-4 '>
                 <div className='flex flex-col gap-2 items-start '>

@@ -11,6 +11,7 @@ const AddNewAffiliate = () => {
         } else {
             setSelectedCourses([...selectedCourses, course]);
         }
+        setShowDropdown(!showDropdown)
     };
 
     const removeCourse = (course: string): void => {
@@ -146,6 +147,7 @@ const AddNewAffiliate = () => {
                                                 className={`flex items-center px-3 py-2 hover:bg-gray-100 hover:border hover:border-primary cursor-pointer ${selectedCourses.includes(course) ? "bg-blue-100" : ""
                                                     }`}
                                                 onClick={() => toggleCourse(course)}
+                                                
                                             >
                                                 <span
                                                     className={`text-gray-700 ${selectedCourses.includes(course)

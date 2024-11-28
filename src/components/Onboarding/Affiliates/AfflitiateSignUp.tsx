@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { MdToggleOn, MdToggleOff } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 
 const AffiliateSignUp = () => {
     const [courses, setCourses] = useState([
@@ -17,6 +18,8 @@ const AffiliateSignUp = () => {
             )
         );
     };
+
+    const navigate = useNavigate()
 
 
     return (
@@ -98,10 +101,10 @@ const AffiliateSignUp = () => {
                         </div>
                          {/* Buttons */}
                          <div className="flex items-center gap-4 mt-4">
-                                <button className=" px-2 w-32 bg-blue-600 text-white text-md font-medium py-2 rounded-md">
+                                <button onClick={() => navigate('/onboarding/affiliatelist')} className=" px-2 w-32 bg-blue-600 text-white text-md font-medium py-2 rounded-md">
                                     Save changes
                                 </button>
-                                <button  className="px-2 w-32 bg-white border border-black text-black text-md font-medium py-2 rounded-md">
+                                <button onClick={() => navigate('/onboarding/affiliaties')}  className="px-2 w-32 bg-white border border-black text-black text-md font-medium py-2 rounded-md">
                                     Cancel
                                 </button>
                             </div>

@@ -9,6 +9,8 @@ import QuizApp from "./QuizApp";
 const Quiz = () => {
 
     const [activeTab, setActiveTab] = useState(0);
+ 
+ 
 
 
 
@@ -17,6 +19,8 @@ const Quiz = () => {
     const toggleChapter = (index: number) => {
         setActiveChapterIdx(activeChapterIdx === index ? null : index);
     };
+
+
 
 
 
@@ -71,10 +75,12 @@ const Quiz = () => {
 
     const courses = [
         {
+            id: 1,
             title: "Money Matters 💸",
             description: "Start the path to become financially savvy...",
             chapters: [
                 {
+                    id: 1,
                     title: "Chapter 1: How To Save",
                     description: "Learn to save money effectively.",
                     duration: "10 minutes",
@@ -85,6 +91,7 @@ const Quiz = () => {
                     hasQuiz: true,
                 },
                 {
+                    id: 2,
                     title: "Chapter 2: Budgeting Basics",
                     description: "Master the art of budgeting.",
                     duration: "15 minutes",
@@ -95,6 +102,7 @@ const Quiz = () => {
                     hasQuiz: true,
                 },
                 {
+                    id: 3,
                     title: "Chapter 3: Smart Investments",
                     description: "Explore smart investment strategies.",
                     duration: "20 minutes",
@@ -107,6 +115,9 @@ const Quiz = () => {
             ],
         },
     ];
+
+
+   
 
 
 
@@ -269,7 +280,7 @@ const Quiz = () => {
             label: "Review",
             content: (
                 <div>
-                     <div className="flex justify-center items-center  py-10">
+                    <div className="flex justify-center items-center  py-10">
                         <div className=" flex flex-col w-full  gap-6">
                             <div className="flex flex-col gap-4 items-center w-full">
                                 <span className="text-3xl font-medium text-[#1e1e1e] text-center">
@@ -277,15 +288,15 @@ const Quiz = () => {
                                 </span>
 
                                 <div className="text-gray-400 flex items-center gap-2">
-                                <FaStar className="w-6 h-6" />
-                                <FaStar className="w-6 h-6" />
-                                <FaStar className="w-6 h-6" />
-                                <FaStar className="w-6 h-6" />
-                                <FaStar className="w-6 h-6" />
+                                    <FaStar className="w-6 h-6" />
+                                    <FaStar className="w-6 h-6" />
+                                    <FaStar className="w-6 h-6" />
+                                    <FaStar className="w-6 h-6" />
+                                    <FaStar className="w-6 h-6" />
 
                                 </div>
 
-                               
+
 
 
                             </div>
@@ -388,144 +399,146 @@ const Quiz = () => {
             <div>
                 {/* Breadcrumb */}
                 <nav className="text-lg text-gray-600 px-10 border-b py-4">
-                    <Link to="/onboarding/home" className="">
+                    <Link to="/onboarding/home" className="text-primary">
                         Learning
                     </Link>
                     <span className="mx-2">{'>'}</span>
-                    <span>
+                    <Link  to="/onboarding/home">
                         Money Matters
-                    </span>
+                    </Link>
                     <span className="mx-2">{'>'}</span>
                     <span>
-                        Money Matters
+                        Quiz
                     </span>
                 </nav>
 
                 {/* Main Content */}
-                <div className="flex flex-col lg:flex-row lg:gap-4 lg:mx-2">
+                <div className="">
                     {/* Video Section */}
                     <div className="rounded-md p-4 flex-1">
 
-                        <>
+                        <div className="flex w-full flex-col lg:flex-row">
 
-                            <div className="w-full">
-                               <QuizApp />
+                            <div className="w-full mx-4">
+                                <QuizApp />
 
 
                             </div>
 
 
-                            {/* Tab Navigation */}
-                            <div className="py-6">
-                                {/* <span className="text-lg">Overview</span> */}
-
-                                <div className="flex w-full border-gray-300 border-b">
-                                    {tabs.map((tab, index) => (
-                                        <button
-                                            key={index}
-                                            className={`px-4 py-2 text-md font-medium ${activeTab === index
-                                                ? "border-b-4 border-primary font-bold"
-                                                : "text-gray-500"
-                                                }`}
-                                            onClick={() => setActiveTab(index)}
-                                        >
-                                            {tab.label}
-                                        </button>
-                                    ))}
+                            {/* Course Content */}
+                            <aside className="border-l border-[#e9e9e9] lg:w-[600px]  overflow-y-scroll">
+                                <div className="flex w-full bg-white flex-col p-4 items-start">
+                                    <div className="flex justify-between items-center w-full">
+                                        <span className="text-[20px] font-semibold text-[#262626]">
+                                            Course content
+                                        </span>
+                                    </div>
                                 </div>
 
-                                {/* Tab Content */}
-                                <div>{tabs[activeTab].content}</div>
-                            </div>
-                        </>
+                                <div className="flex w-full flex-col  h-[200px] overflew-y-scroll">
+                                    {courses[0].chapters.map((chapter, chapterIdx) => (
+                                        <div
+                                            key={chapterIdx}
+                                            onClick={() => setSelectedChapterIdx(chapterIdx)}
+                                            className={`w-full flex flex-col  items-start bg-white border-t border-[#e9e9e9] `}
+                                        >
+                                            <div
+                                                className={`flex flex-col justify-between p-6 rounded-md w-full transition ${activeChapterIdx === chapterIdx ? "bg-blue-100" : ""
+                                                    }`}
+                                            >
+                                                {/* Chapter Accordion */}
+                                                <div >
+                                                    <div
+                                                        className="flex justify-between items-center w-full cursor-pointer"
+                                                        onClick={() => toggleChapter(chapterIdx)}
+                                                    >
+                                                        <span className="text-[18px] font-semibold text-[#1e1e1e]">
+                                                            {chapter.title}
+                                                        </span>
+                                                        {activeChapterIdx === chapterIdx ? (
+                                                            <FaChevronUp className="w-4 h-4 text-gray-600" />
+                                                        ) : (
+                                                            <FaChevronDown className="w-4 h-4 text-gray-600" />
+                                                        )}
+                                                    </div>
+                                                    <span className="text-gray-600 text-sm">{chapter.duration}</span>
+                                                    <img src={image.progressbar} />
+                                                </div>
+
+                                                {/* Lessons */}
+                                                <div
+                                                    className={`mt-2 flex flex-col gap-2 ${activeChapterIdx === chapterIdx ? "" : "hidden"
+                                                        }`}
+                                                >
+                                                    {chapter.lessons.map((lesson, lessonIdx) => (
+                                                        <div
+                                                            key={lessonIdx}
+                                                            className={`cursor-pointer py-3 rounded-md flex flex-col`}
+                                                        >
+                                                            <div>
+                                                                <div className="flex items-center gap-2">
+                                                                    {/* <div className="w-5 h-5 border-4 border-gray-500 rounded-full flex items-center justify-center cursor-pointer">
+                                                                <span className="w-3 h-3 rounded-full"></span>
+                                                            </div> */}
+                                                                    <img src={image.circle_tick} />
+                                                                    <span className="text-md font-semibold text-[#1e1e1e]">
+                                                                        {lesson.title}
+                                                                    </span>
+                                                                </div>
+
+                                                                <div className="ml-8 flex items-center gap-1">
+                                                                    <img src={image.movie} alt="icon" />
+                                                                    <span className="text-gray-600">{lesson.duration}</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    ))}
+
+                                                    {chapter.hasQuiz && (
+                                                        <div className="flex items-center gap-2">
+                                                            <div className="w-5 h-5 border-4 border-gray-500 rounded-full flex items-center justify-center cursor-pointer">
+                                                                <span className="w-3 h-3 rounded-full"></span>
+                                                            </div>
+                                                            <span className="text-md font-semibold text-[#1e1e1e]">
+                                                                Quiz
+                                                            </span>
+                                                        </div>
+                                                    )}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </aside>
+                        </div>
 
                     </div>
 
-                    {/* Course Content */}
-                    <aside className="border-l border-[#e9e9e9] lg:w-[500px]  overflow-y-scroll">
-                        <div className="flex w-full bg-white flex-col p-4 items-start">
-                            <div className="flex justify-between items-center w-full">
-                                <span className="text-[20px] font-semibold text-[#262626]">
-                                    Course content
-                                </span>
-                            </div>
-                        </div>
+                    {/* Tab Navigation */}
+                    <div className="py-6 lg:mx-6">
+                        {/* <span className="text-lg">Overview</span> */}
 
-                        <div className="flex w-full flex-col  h-[200px] overflew-y-scroll">
-                            {courses[0].chapters.map((chapter, chapterIdx) => (
-                                <div
-                                    key={chapterIdx}
-                                    onClick={() => setSelectedChapterIdx(chapterIdx)}
-                                    className={`w-full flex flex-col  items-start bg-white border-t border-[#e9e9e9] `}
+                        <div className="flex w-full border-gray-300 border-b">
+                            {tabs.map((tab, index) => (
+                                <button
+                                    key={index}
+                                    className={`px-4 py-2 text-md font-medium ${activeTab === index
+                                        ? "border-b-4 border-primary font-bold"
+                                        : "text-gray-500"
+                                        }`}
+                                    onClick={() => setActiveTab(index)}
                                 >
-                                    <div
-                                        className={`flex flex-col justify-between p-6 rounded-md w-full transition ${activeChapterIdx === chapterIdx  ? "bg-blue-100" : ""
-                                            }`}
-                                    >
-                                        {/* Chapter Accordion */}
-                                        <div >
-                                            <div
-                                                className="flex justify-between items-center w-full cursor-pointer"
-                                                onClick={() => toggleChapter(chapterIdx)}
-                                            >
-                                                <span className="text-[18px] font-semibold text-[#1e1e1e]">
-                                                    {chapter.title}
-                                                </span>
-                                                {activeChapterIdx === chapterIdx ? (
-                                                    <FaChevronUp className="w-4 h-4 text-gray-600" />
-                                                ) : (
-                                                    <FaChevronDown className="w-4 h-4 text-gray-600" />
-                                                )}
-                                            </div>
-                                            <span className="text-gray-600 text-sm">{chapter.duration}</span>
-                                            <img src={image.progressbar} />
-                                        </div>
-
-                                        {/* Lessons */}
-                                        <div
-                                            className={`mt-2 flex flex-col gap-2 ${activeChapterIdx === chapterIdx ? "" : "hidden"
-                                                }`}
-                                        >
-                                            {chapter.lessons.map((lesson, lessonIdx) => (
-                                                <div
-                                                    key={lessonIdx}
-                                                    className={`cursor-pointer py-3 rounded-md flex flex-col`}
-                                                >
-                                                    <div>
-                                                        <div className="flex items-center gap-2">
-                                                            {/* <div className="w-5 h-5 border-4 border-gray-500 rounded-full flex items-center justify-center cursor-pointer">
-                                                                <span className="w-3 h-3 rounded-full"></span>
-                                                            </div> */}
-                                                            <img src={image.circle_tick} />
-                                                            <span className="text-md font-semibold text-[#1e1e1e]">
-                                                                {lesson.title}
-                                                            </span>
-                                                        </div>
-
-                                                        <div className="ml-8 flex items-center gap-1">
-                                                            <img src={image.movie} alt="icon" />
-                                                            <span className="text-gray-600">{lesson.duration}</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            ))}
-
-                                            {chapter.hasQuiz && (
-                                                <div className="flex items-center gap-2">
-                                                    <div className="w-5 h-5 border-4 border-gray-500 rounded-full flex items-center justify-center cursor-pointer">
-                                                        <span className="w-3 h-3 rounded-full"></span>
-                                                    </div>
-                                                    <span className="text-md font-semibold text-[#1e1e1e]">
-                                                        Quiz
-                                                    </span>
-                                                </div>
-                                            )}
-                                        </div>
-                                    </div>
-                                </div>
+                                    {tab.label}
+                                </button>
                             ))}
                         </div>
-                    </aside>
+
+                        {/* Tab Content */}
+                        <div>{tabs[activeTab].content}</div>
+                    </div>
+
+
 
 
 

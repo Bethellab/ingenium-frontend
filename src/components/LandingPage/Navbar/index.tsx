@@ -29,20 +29,22 @@ const Navbar = () => {
                     <NavLink to='/'>
                         <li className='py-1 whitespace-nowrap'>Explore</li>
                     </NavLink>
-                    <NavLink to='/'>
+                    <a href="#hiring">
                         <li className='py-1 whitespace-nowrap'>Find Your Next Talent</li>
 
-                    </NavLink>
-                    <NavLink to='/'>
+                    </a>
+                    <a href="#elearning">
                         <li className='py-1 whitespace-nowrap'>Advance Your Career</li>
-                    </NavLink>
+                    </a>
                     <NavLink to='/'>
                         <li className='py-1 whitespace-nowrap'>Blog</li>
                     </NavLink>
                 </ul>
                 <div className='flex items-center gap-4 relative'>
 
-                    <button onClick={handleDropdownToggle} className='border rounded-full px-2 py-2 whitespace-nowrap'>Sign in</button>
+                    <button onClick={() => navigate('/login')} className='border rounded-full px-2 py-2 whitespace-nowrap'>Sign in</button>
+                    
+                    <button  onClick={handleDropdownToggle} className='bg-primary py-2 px-4 rounded-full text-white  whitespace-nowrap'>Get Started</button>
                      {/* Dropdown for Sign in */}
                      {isDropdownOpen && (
                         <div className='absolute right-0 mt-36 w-48 bg-white border rounded-lg shadow-lg z-10'>
@@ -54,8 +56,6 @@ const Navbar = () => {
                             </button>
                         </div>
                     )}
-                    
-                    <button className='bg-primary py-2 px-4 rounded-full text-white hidden md:block whitespace-nowrap'>Get Started</button>
 
 
                     <img onClick={() => setShowMenu(true)} className='w-6 xl:hidden' src={image.menubar} alt='' />
@@ -67,8 +67,8 @@ const Navbar = () => {
                         </div>
                         <ul className='flex flex-col items-center gap-2 mt-5 px-5 text-lg font-medium'>
                             <NavLink onClick={() => setShowMenu(false)} to="/"><p className='px-4 py-2 rounded-full inline-block'>Explore</p></NavLink>
-                            <NavLink onClick={() => setShowMenu(false)} to="/"><p className='px-4 py-2 rounded-full inline-block'>Find Your Next Talent</p></NavLink>
-                            <NavLink onClick={() => setShowMenu(false)} to="/"><p className='px-4 py-2 rounded-full inline-block'>Advnace Your Career</p></NavLink>
+                            <a href="#hiring" onClick={() => setShowMenu(false)} ><p className='px-4 py-2 rounded-full inline-block'>Find Your Next Talent</p></a>
+                            <a href="#elearning" onClick={() => setShowMenu(false)} ><p className='px-4 py-2 rounded-full inline-block'>Advnace Your Career</p></a>
                             <NavLink onClick={() => setShowMenu(false)} to="/"><p className='px-4 py-2 rounded-full inline-block'>Blog</p></NavLink>
                             <button className='bg-primary py-2 px-4 rounded-full text-white'>Get Started</button>
                         </ul>

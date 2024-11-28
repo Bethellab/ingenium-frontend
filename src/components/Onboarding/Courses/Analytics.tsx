@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link,  useNavigate } from "react-router-dom"
 import { FaChevronDown } from "react-icons/fa";
 import { useState } from "react";
 
@@ -16,21 +16,32 @@ const Analytics = () => {
         setSortByDropdownOpen2((prevState) => !prevState);
     };
 
+    const navigate = useNavigate()
+
 
     return (
         <div className="px-4 md:px-10">
-            {/* Breadcrumb */}
-            <nav className="text-sm sm:text-lg text-gray-600 px-4 md:px-10 border-b py-2">
-                <Link to="/courses" className="">
-                    Courses
-                </Link>
-                <span className="mx-2">{'>'}</span>
-                <Link to="/onboarding/home">
-                    Money Matter
-                </Link>
-                <span className="mx-2">{'>'}</span>
-                <span className="font-semibold">Analytics</span>
-            </nav>
+
+            <div className="flex justify-between items-center">
+                {/* Breadcrumb */}
+                <nav className="text-sm sm:text-lg text-gray-600 px-4 md:px-10 border-b py-2">
+                    <Link to="/courses" className="">
+                        Courses
+                    </Link>
+                    <span className="mx-2">{'>'}</span>
+                    <Link to="/onboarding/home">
+                        Money Matter
+                    </Link>
+                    <span className="mx-2">{'>'}</span>
+                    <span className="font-semibold">Analytics</span>
+                </nav>
+
+                <button className="bg-primary p-2 text-white rounded-md" onClick={() => navigate('/onboarding/courses/uploadvideo')}>
+                    Upload Video
+                </button>
+
+            </div>
+
 
             {/* Cards Section */}
             <div className="py-4 w-full">
