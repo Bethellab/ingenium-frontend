@@ -24,7 +24,7 @@ const LoginForm: React.FC<LoginFormProps> = () => {
                 <img src={image.signinlogo} className='w-36 m-4' onClick={() => navigate('/')} />
             </div>
             <div className='flex justify-center items-center'>
-                <div className="flex justify-center w-full lg:w-[600px] p-6 flex-col gap-6 lg:mt-10 bg-white rounded-lg border-solid border border-[#e9ecef]">
+                <div className="flex justify-center w-full lg:w-[600px] p-6 flex-col gap-6 lg:mt-32 bg-white rounded-lg border-solid border border-[#e9ecef]">
                     <div className="flex items-center lg:w-[540px] flex-col gap-2">
                         <span className="text-2xl font-semibold text-center lg:whitespace-nowrap">Welcome to Ingenium</span>
                         <span className="text-md font-normal text-[#6c6a6a] text-center">Enter your credentials to log in</span>

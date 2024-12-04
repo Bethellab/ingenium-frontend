@@ -4,7 +4,7 @@ import { image } from "@/assets/image/image"
 const WhoIsIngeniumFor = () => {
     return (
         <div>
-            <div className='flex flex-col gap-10 items-center mt-24 w-full'>
+            <div className='flex flex-col gap-10 items-center mt-24 lg:mx-6'>
                 <div className='flex flex-col gap-4 items-center '>
                     <span className="text-3xl lg:text-[60px] font-medium  text-center whitespace-nowrap ">
                         Who is Ingenium For?
@@ -21,7 +21,7 @@ const WhoIsIngeniumFor = () => {
                                 <span className=" text-lg font-bold  text-[#262626]  text-left whitespace-nowrap ">
                                     HR Managers & Recruiters
                                 </span>
-                                <span className=" lg:w-[400px] text-sm text-gray-600  text-left ">
+                                <span className="  text-sm text-gray-600  text-left ">
                                     Efficiently manage your hiring process, from job postings to
                                     candidate interviews, all in one place.
                                 </span>
@@ -33,7 +33,7 @@ const WhoIsIngeniumFor = () => {
                                 <span className=" text-lg font-bold  text-[#262626]  text-left whitespace-nowrap ">
                                     Job Seekers & Professionals
                                 </span>
-                                <span className="lg:w-[400px]  text-sm text-gray-600  text-left ">
+                                <span className="text-sm text-gray-600  text-left ">
                                 Take control of your career with access to expert-led courses, certifications, and job opportunities.
                                 </span>
                             </div>
@@ -44,7 +44,7 @@ const WhoIsIngeniumFor = () => {
                                 <span className=" text-lg font-bold  text-[#262626]  text-left whitespace-nowrap ">
                                     Job Seekers & Professionals
                                 </span>
-                                <span className="lg:w-[400px]  text-sm text-gray-600  text-left ">
+                                <span className=" text-sm text-gray-600  text-left ">
                                 Take control of your career with access to expert-led courses, certifications, and job opportunities.
                                 </span>
                             </div>
@@ -60,7 +60,7 @@ const WhoIsIngeniumFor = () => {
                                 <span className="text-lg font-bold  text-[#262626]  text-left whitespace-nowrap ">
                                     Companies & Teams
                                 </span>
-                                <span className=" lg:w-[420px]  text-sm  text-[#595959]  text-left ">
+                                <span className="   text-sm  text-[#595959]  text-left ">
                                     Provide your team with powerful recruitment and e-learning tools
                                     to drive productivity and growth.
                                 </span>
@@ -72,7 +72,7 @@ const WhoIsIngeniumFor = () => {
                                 <span className="text-lg font-bold  text-[#262626]  text-left whitespace-nowrap ">
                                     Companies & Teams
                                 </span>
-                                <span className=" lg:w-[420px]  text-sm  text-[#595959]  text-left ">
+                                <span className="   text-sm  text-[#595959]  text-left ">
                                     Provide your team with powerful recruitment and e-learning tools
                                     to drive productivity and growth.
                                 </span>

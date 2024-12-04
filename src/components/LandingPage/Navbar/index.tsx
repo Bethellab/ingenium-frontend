@@ -22,7 +22,7 @@ const Navbar = () => {
     };
 
     return (
-        <div className=' text-sm py-3 mb-5 '>
+        <div className=' text-sm py-3 mb-5 lg:mx-32  '>
             <div className='bg-white flex items-center justify-between py-3 px-2 rounded-full'>
                 <img onClick={() => navigate('/')} className='w-28 cursor-pointer' src={image.ingenium_logo} />
                 <ul className='hidden xl:flex items-start gap-10 font-medium'>

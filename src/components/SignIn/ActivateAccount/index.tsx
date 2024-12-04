@@ -1,6 +1,6 @@
 
 import { image } from '@/assets/image/image';
-import { FaGoogle, FaLinkedin } from 'react-icons/fa';
+
 import { useNavigate } from 'react-router-dom';
 
 
@@ -13,7 +13,7 @@ const ActivateAccount = () => {
                 <img src={image.signinlogo} className="w-36 m-4" onClick={() => navigate('/')} />
             </div>
 
-            <div className='flex items-center justify-center mt-10'>
+            <div className='flex items-center justify-center mt-24'>
                 <div className="flex justify-center items-center w-full lg:w-[600px] p-6 flex-col gap-6 bg-white rounded-lg border-solid border border-[#e9ecef]">
                     <div className="flex items-center lg:w-[540px] flex-col gap-2">
                         <span className="text-2xl font-semibold text-center lg:whitespace-nowrap">
@@ -27,13 +27,13 @@ const ActivateAccount = () => {
                     <div className="flex flex-col gap-4 w-full">
                         {/* Google login button */}
                         <button className="bg-white text-center border py-3 px-4 rounded-xl flex items-center justify-center gap-2 w-full">
-                            <FaGoogle size={20} />
+                            <img src={image.googleclr} />
                             Continue with Google
                         </button>
 
                         {/* LinkedIn login button */}
                         <button className="bg-white text-center border py-3 px-4 rounded-xl flex items-center justify-center gap-2 w-full">
-                            <FaLinkedin size={20} />
+                            <img src={image.linkedinclr} />
                             Continue with LinkedIn
                         </button>
 

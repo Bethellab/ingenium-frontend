@@ -62,7 +62,7 @@ const UserAcceptInviteLink = () => {
             </div>
             <div className="flex items-center justify-center">
                 <div>
-                    <form className="flex justify-center w-full lg:w-[600px] p-6 flex-col gap-6 lg:mt-10 bg-white rounded-lg border-solid border border-[#e9ecef]" onSubmit={handleSubmit}>
+                    <form className="flex justify-center w-full lg:w-[600px] p-6 flex-col gap-6 lg:mt-24 bg-white rounded-lg border-solid border border-[#e9ecef]" onSubmit={handleSubmit}>
                         <div className="flex items-center lg:w-[540px] flex-col gap-2">
                             <span className="text-2xl font-semibold text-center lg:whitespace-nowrap">Create Password</span>
                             <span className="text-md font-normal text-[#6c6a6a] text-center">Fill the details below to create your account</span>

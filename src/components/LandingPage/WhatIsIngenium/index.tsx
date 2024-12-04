@@ -2,7 +2,7 @@
 
 const WhatIsIngenium = () => {
  return (
-    <div className='  bg-primary rounded-xl mt-6 lg:mt-20  p-6  lg:mx-20'>
+    <div className='  bg-primary rounded-xl mt-6 lg:mt-20 p-10  lg:mx-6'>
       <div className='flex flex-col gap-6 items-center '>
         <span className=" text-[17px] font-medium  text-[#cce7fc]  text-center whitespace-nowrap ">
           What is Ingenium?

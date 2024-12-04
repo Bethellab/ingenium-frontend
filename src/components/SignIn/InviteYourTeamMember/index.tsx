@@ -91,7 +91,7 @@ const InviteYourTeamMember: React.FC = () => {
                 <img src={image.signinlogo} className="w-36 m-4" onClick={() => navigate('/')} />
             </div>
             <div className="flex items-center justify-center ">
-                <div className="flex justify-center w-full lg:w-[600px] p-6 flex-col gap-2 lg:mt-10 bg-white rounded-lg border border-[#e9ecef]">
+                <div className="flex justify-center w-full lg:w-[600px] p-6 flex-col gap-2 lg:mt-24 bg-white rounded-lg border border-[#e9ecef]">
                     <div className="flex items-center lg:w-[540px] flex-col gap-2">
                         <span className="text-2xl font-semibold text-center">Invite your team members</span>
                         <span className="text-md font-normal text-[#6c6a6a] text-center">
@@ -166,7 +166,7 @@ const InviteYourTeamMember: React.FC = () => {
                                             </span>
 
                                             {uploadProgress === 100 && (
-                                                <p className="text-green-500">Upload Completed</p>
+                                                <p className="text-primary">Upload Completed</p>
                                             )}
                                             {uploading && (
                                                 <div className="flex justify-center">
@@ -264,7 +264,7 @@ const InviteYourTeamMember: React.FC = () => {
                     )}
 
                     <div className='mt-2'>
-                        <p className='text-center text-primary text-lg '>Skip for now</p>
+                        <p className='text-center text-primary text-lg ' onClick={() => navigate('/onboarding/home')}>Skip for now</p>
 
                     </div>
 

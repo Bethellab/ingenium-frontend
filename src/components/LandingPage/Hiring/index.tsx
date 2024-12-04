@@ -3,7 +3,8 @@ import { image } from "@/assets/image/image"
 
 const Hiring = () => {
     return (
-        <div id="hiring" className=' flex lg:w-[1223px] gap-[79px] items-center  lg:relative  md:mx-auto mt-8  lg:mt-24'>
+        <div className="lg:flex lg:justify-center lg:items-center lg:mx-24">
+              <div id="hiring" className=' flex lg:w-[1500px] gap-[79px] items-center  lg:relative mt-8  lg:mt-24'>
             <div className='w-[514px] h-[779px] shrink-0 hidden xl:block '>
                <img src={image.hiring_img} className="rounded-lg" />
             </div>
@@ -82,6 +83,9 @@ const Hiring = () => {
             </div>
             
         </div>
+
+        </div>
+      
     )
 }
 

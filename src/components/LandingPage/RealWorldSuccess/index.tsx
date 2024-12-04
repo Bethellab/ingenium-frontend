@@ -32,7 +32,7 @@ const RealWorldSuccess = () => {
     };
 
     return (
-        <div className='py-6 bg-[#0054a6] rounded-xl overflow-hidden mt-24 lg:mt-0 lg:mx-20'>
+        <div className='py-6 bg-[#0054a6] rounded-xl overflow-hidden mt-24 lg:mt-0 lg:mx-6'>
             <div className='flex  flex-col gap-2 items-center justify-center mt-4 mr-0 mb-0 '>
                 <div className='flex flex-col gap-4  items-center'>
                     <div className='flex flex-col gap-2 items-center'>

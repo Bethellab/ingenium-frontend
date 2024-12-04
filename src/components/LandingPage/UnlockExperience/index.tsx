@@ -63,7 +63,7 @@ const UnlockExperience = () => {
                     </div>
 
                     {/* Pro Plan Card */}
-                    <div className="lg:w-96 p-6 bg-blue-600 text-white rounded-lg shadow-lg border-2 border-blue-800">
+                    <div className="lg:w-96 p-6 bg-[#0086F2] blue-600 text-white rounded-lg shadow-lg border-2 border-blue-900">
                         <div className="mb-8">
                             <button className="bg-white text-blue-600 text-sm font-semibold py-2 px-4 rounded-lg">
                                 PRO

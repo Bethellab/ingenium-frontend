@@ -3,7 +3,8 @@ import { image } from "@/assets/image/image"
 
 const ContentMgmt = () => {
     return (
-        <div className=' flex lg:w-[1223px] gap-[79px] items-center  lg:relative md:mx-auto mt-12  lg:mt-32'>
+        <div className="lg:flex lg:justify-center lg:items-center lg:mx-24">
+              <div className=' flex lg:w-[1500px] gap-[79px] items-center  lg:relative md:mx-auto mt-12  lg:mt-24'>
             <div className='w-[514px] h-[779px] shrink-0 hidden lg:block '>
                <img src={image.cont_mgmt_img} className="rounded-lg h-[700px]"  />
             </div>
@@ -68,6 +69,9 @@ const ContentMgmt = () => {
             </div>
             
         </div>
+
+        </div>
+      
     )
 }
 

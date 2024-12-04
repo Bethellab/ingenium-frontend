@@ -13,6 +13,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ userType }) => {
 
     const navigate = useNavigate()
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+    const [selectedPlan, setSelectedPlan] = useState('pro');
     const [password, setPassword] = useState('');
     const [passwordStrength, setPasswordStrength] = useState<string>('');
     const [isTyping, setIsTyping] = useState<boolean>(false);
@@ -54,7 +55,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ userType }) => {
         <div>
             <div >
                 {!formSubmitted ? (
-                    <form className="flex justify-center w-full lg:w-[600px] p-6 flex-col gap-6 lg:mt-10 bg-white rounded-lg border-solid border border-[#e9ecef]">
+                    <form className="flex justify-center w-full lg:w-[600px] p-6 flex-col gap-6 lg:mt-20 bg-white rounded-lg border-solid border border-[#e9ecef]">
                         <div className="flex items-center lg:w-[540px] flex-col gap-2">
                             <span className="text-2xl font-semibold text-center lg:whitespace-nowrap">Create your Ingenium account</span>
                             <span className="text-md font-normal text-[#6c6a6a] text-center">Fill the details below to create your account</span>
@@ -63,7 +64,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ userType }) => {
                             <div className="flex flex-col gap-4 items-start">
                                 <div className="flex flex-col lg:flex-row justify-between items-center gap-3 w-full">
                                     <div className="flex flex-col gap-2 w-full">
-                                        <label>First Name</label>
+                                        <label className='font-normal'>First Name</label>
                                         <input type="text" className="w-full border border-gray-300 py-2 px-2 rounded-xl" placeholder="Enter your first name" required />
                                     </div>
                                     <div className="flex flex-col gap-2 w-full">
@@ -108,7 +109,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ userType }) => {
                                         <div className="w-full h-2 mt-2 bg-gray-300 rounded">
                                             <div
                                                 className={`h-full rounded transition-all duration-300 ${passwordStrength === 'strong'
-                                                    ? 'bg-green-500'
+                                                    ? 'bg-primary'
                                                     : passwordStrength === 'medium'
                                                         ? 'bg-yellow-500'
                                                         : 'bg-red-500'
@@ -130,16 +131,16 @@ const SignupForm: React.FC<SignupFormProps> = ({ userType }) => {
                                         <div className="text-md text-gray-600 mt-2">
                                             <p>Your password must contain:</p>
                                             <ul>
-                                                <li className={password.length >= 8 ? 'text-green-500' : 'text-red-500'}>
+                                                <li className={password.length >= 8 ? 'text-primary' : 'text-red-500'}>
                                                     Minimum 8 characters
                                                 </li>
-                                                <li className={/[A-Z]/.test(password) ? 'text-green-500' : 'text-red-500'}>
+                                                <li className={/[A-Z]/.test(password) ? 'text-primary' : 'text-red-500'}>
                                                     At least one uppercase letter
                                                 </li>
-                                                <li className={/\d/.test(password) ? 'text-green-500' : 'text-red-500'}>
+                                                <li className={/\d/.test(password) ? 'text-primary' : 'text-red-500'}>
                                                     At least one number
                                                 </li>
-                                                <li className={/[!@#$%^&*(),.?":{}|<>]/.test(password) ? 'text-green-500' : 'text-red-500'}>
+                                                <li className={/[!@#$%^&*(),.?":{}|<>]/.test(password) ? 'text-primary' : 'text-red-500'}>
                                                     At least one symbol
                                                 </li>
                                             </ul>
@@ -184,12 +185,13 @@ const SignupForm: React.FC<SignupFormProps> = ({ userType }) => {
 
                 ) : showChoosePlan ? (
                     <>
-                        <div className="flex justify-center items-center mt-10">
+                        <div className="flex justify-center items-center mt-10 lg:mt-24">
                             {/* Pricing Cards */}
                             <div className="flex flex-col xl:flex-row gap-4">
 
                                 {/* Basic Plan Card */}
-                                <div className="w-full lg:w-96 py-6 px-3 bg-gray-100 h-full hover:border-4 hover:border-primary  rounded-lg shadow-lg">
+                                <div className={`w-full lg:w-96 py-6 px-3 bg-gray-100 h-full ${selectedPlan === 'basic' ? 'border-4 border-primary' : 'hover:border-4 hover:border-primary'} rounded-lg shadow-lg`}
+                                    onClick={() => setSelectedPlan('basic')}>
                                     <div className="mb-4">
                                         <button className="bg-gray-300 text-sm font-semibold py-2 px-4 rounded-lg">
                                             BASIC
@@ -205,19 +207,20 @@ const SignupForm: React.FC<SignupFormProps> = ({ userType }) => {
                                     {/* Features List */}
                                     <div className="space-y-3 text-white">
                                         <div className="flex items-center gap-2">
-                                            <span className="text-gray-800">✔</span>
+                                            
+                                            <img src={image.check_circle_dark} />
                                             <p className="text-gray-800">2,000 GB of encrypted content storage</p>
                                         </div>
                                         <div className="flex items-center gap-2">
-                                            <span className="text-gray-800">✔</span>
+                                        <img src={image.check_circle_dark} />
                                             <p className="text-gray-800">Automatically free up storage space for your courses</p>
                                         </div>
                                         <div className="flex items-center gap-2">
-                                            <span className="text-gray-800">✔</span>
+                                        <img src={image.check_circle_dark} />
                                             <p className="text-gray-800">Access on any device you use</p>
                                         </div>
                                         <div className="flex items-center gap-2">
-                                            <span className="text-gray-800">✔</span>
+                                        <img src={image.check_circle_dark} />
                                             <p className="text-gray-800">30-day content protection and recovery</p>
                                         </div>
 
@@ -242,7 +245,12 @@ const SignupForm: React.FC<SignupFormProps> = ({ userType }) => {
 
 
                                 {/* Pro Plan Card */}
-                                <div className="w-full lg:w-96 py-6 px-3 bg-gray-100 h-full hover:border-4 hover:border-primary  rounded-lg shadow-lg">
+                                <div className={`w-full lg:w-96 py-6 px-3 bg-gray-100 h-full relative ${selectedPlan === 'pro' ? 'border-4 border-primary' : 'hover:border-4 hover:border-primary'} rounded-lg shadow-lg`}
+                                    onClick={() => setSelectedPlan('pro')}>
+                                    {/* Recommended Badge */}
+                                    <span className="absolute -top-2 left-64 bg-[#FFBD01]  py-1 px-3 text-sm rounded-full">
+                                        Recommended
+                                    </span>
                                     <div className="mb-4">
                                         <button className="bg-white text-blue-600 text-sm font-semibold py-2 px-4 rounded-lg">
                                             PRO
@@ -257,42 +265,45 @@ const SignupForm: React.FC<SignupFormProps> = ({ userType }) => {
                                     {/* Features List */}
                                     <div className="space-y-3 text-white">
                                         <div className="flex items-center gap-2">
-                                            <span className="text-gray-800">✔</span>
+                                        <img src={image.check_circle_dark} />
                                             <p className="text-gray-800">2,000 GB of encrypted content storage</p>
                                         </div>
                                         <div className="flex items-center gap-2">
-                                            <span className="text-gray-800">✔</span>
+                                        <img src={image.check_circle_dark} />
                                             <p className="text-gray-800">Automatically free up storage space for your courses</p>
                                         </div>
                                         <div className="flex items-center gap-2">
-                                            <span className="text-gray-800">✔</span>
+                                        <img src={image.check_circle_dark} />
                                             <p className="text-gray-800">Access on any device you use</p>
                                         </div>
                                         <div className="flex items-center gap-2">
-                                            <span className="text-gray-800">✔</span>
+                                        <img src={image.check_circle_dark} />
                                             <p className="text-gray-800">30-day content protection and recovery</p>
                                         </div>
-
-
                                     </div>
 
-                                    {
-                                        userType === 'business' &&
-                                        <button onClick={() => navigate('/invite')} className="w-full mt-8 py-2 bg-primary text-white border border-gray-300 rounded-lg font-medium text-center">
+                                    {userType === 'business' && (
+                                        <button
+                                            onClick={() => navigate('/invite')}
+                                            className="w-full mt-8 py-2 bg-primary text-white border border-gray-300 rounded-lg font-medium text-center"
+                                        >
                                             Try for free for 30 days
                                         </button>
-                                    }
+                                    )}
 
-                                    {
-                                        userType === 'individual' &&
-                                        <button onClick={() => navigate('/onboarding/home')} className="w-full mt-8 py-2 bg-primary text-white border border-gray-300 rounded-lg font-medium text-center">
+                                    {userType === 'individual' && (
+                                        <button
+                                            onClick={() => navigate('/onboarding/home')}
+                                            className="w-full mt-8 py-2 bg-primary text-white border border-gray-300 rounded-lg font-medium text-center"
+                                        >
                                             Try for free for 30 days
                                         </button>
-                                    }
+                                    )}
                                 </div>
 
                                 {/* Advance Plan Card */}
-                                <div className="w-full lg:w-96 py-6 px-3 bg-gray-100 h-full hover:border-4 hover:border-primary  rounded-lg shadow-lg">
+                                <div className={`w-full lg:w-96 py-6 px-3 bg-gray-100 h-full ${selectedPlan === 'basic' ? 'border-4 border-primary' : 'hover:border-4 hover:border-primary'} rounded-lg shadow-lg`}
+                                    onClick={() => setSelectedPlan('advance')}>
                                     <div className="mb-4">
                                         <button className="bg-gray-200 text-sm font-semibold py-2 px-4 rounded-lg">
                                             Advanced
@@ -307,19 +318,19 @@ const SignupForm: React.FC<SignupFormProps> = ({ userType }) => {
                                     {/* Features List */}
                                     <div className="space-y-3 text-white">
                                         <div className="flex items-center gap-2">
-                                            <span className="text-gray-800">✔</span>
+                                        <img src={image.check_circle_dark} />
                                             <p className="text-gray-800">2,000 GB of encrypted content storage</p>
                                         </div>
                                         <div className="flex items-center gap-2">
-                                            <span className="text-gray-800">✔</span>
+                                        <img src={image.check_circle_dark} />
                                             <p className="text-gray-800">Automatically free up storage space for your courses</p>
                                         </div>
                                         <div className="flex items-center gap-2">
-                                            <span className="text-gray-800">✔</span>
+                                        <img src={image.check_circle_dark} />
                                             <p className="text-gray-800">Access on any device you use</p>
                                         </div>
                                         <div className="flex items-center gap-2">
-                                            <span className="text-gray-800">✔</span>
+                                        <img src={image.check_circle_dark} />
                                             <p className="text-gray-800">30-day content protection and recovery</p>
                                         </div>
 
@@ -345,9 +356,19 @@ const SignupForm: React.FC<SignupFormProps> = ({ userType }) => {
 
 
                         </div>
-                        <div className="flex justify-center items-center m-5 lg:m-10">
-                            <button className="text-primary text-lg text-center">Skip for now</button>
-                        </div>
+                        {
+                            userType === 'business' &&
+                            <div className="flex justify-center items-center m-5 lg:m-10">
+                                <button onClick={() => navigate('/invite')} className="text-primary text-lg text-center">Skip for now</button>
+                            </div>
+                        }
+                        {
+                            userType === 'individual' &&
+                            <div className="flex justify-center items-center m-5 lg:m-10">
+                                <button onClick={() => navigate('/onboarding/home')} className="text-primary text-lg text-center">Skip for now</button>
+                            </div>
+                        }
+
                     </>
                 ) : (
                     // Email confirmation view

@@ -20,7 +20,7 @@ const images = [
 const HRTransform = () => {
   const navigate = useNavigate()
   return (
-    <section className="flex flex-col py-10 px-3 rounded-3xl overflow-hidden bg-zinc-950 lg:mx-20 mt-12">
+    <section className="flex flex-col py-10 px-3 rounded-3xl overflow-hidden bg-zinc-950 lg:mx-6 mt-12">
       <div className="flex flex-col items-center justify-center ">
         <h2 className="text-2xl lg:text-6xl font-medium  text-center text-red-50  lg:w-[900px] leading-[60px]  ">
           Ready to Transform Your HR Process?
@@ -30,7 +30,7 @@ const HRTransform = () => {
             Refer friends to Ingenium and earn rewards. Spread the word, grow your network, and boost your benefits.
           </p>
           <div className="flex gap-4 items-start self-center mt-5 font-medium tracking-normal">
-            <button onClick={() => {navigate('/'); scrollTo(0, 0)}} className="gap-2.5 self-stretch px-6 py-4 text-sm leading-5 rounded-3xl max-md:px-5 bg-primary text-white">Join Ingenium Today</button>
+            <button onClick={() => {navigate('/signup/business'); scrollTo(0, 0)}} className="gap-2.5 self-stretch px-6 py-4 text-sm leading-5 rounded-3xl max-md:px-5 bg-primary text-white">Join Ingenium Today</button>
             <button className="gap-2.5 self-stretch px-6 py-4 text-sm leading-5 rounded-3xl max-md:px-5 bg-white">Book Free demo</button>
           </div>
         </div>

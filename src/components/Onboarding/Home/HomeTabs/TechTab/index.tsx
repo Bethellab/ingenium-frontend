@@ -17,55 +17,81 @@ const TechTab = () => {
     },
     {
       id: 2,
-      title: "Tech Innovations 🚀",
+      title: "Money Matters 💸",
       description:
-        "Discover the latest trends in technology and innovation. Learn how emerging technologies are shaping the world and what skills you need to stay ahead in the tech industry.",
-      rating: 4.8,
-      views: "30M+",
-      image: image.moneymaking, // Replace with the correct image
+        "Empower yourself with practical financial knowledge. From budgeting and saving strategies to understanding investments, this course covers essentials to manage money effectively.",
+      rating: 4.5,
+      views: "49M+",
+      image: image.moneymaking,
     },
     {
       id: 3,
-      title: "Transport Systems 🚗",
+      title: "Money Matters 💸",
       description:
-        "Learn about modern transport systems, sustainability, and how technology is transforming the way we move goods and people across the globe.",
-      rating: 4.6,
-      views: "15M+",
-      image: image.moneymaking, // Replace with the correct image
+        "Empower yourself with practical financial knowledge. From budgeting and saving strategies to understanding investments, this course covers essentials to manage money effectively.",
+      rating: 4.5,
+      views: "49M+",
+      image: image.moneymaking,
     },
     {
       id: 4,
-      title: "Transport Systems 🚗",
+      title: "Money Matters 💸",
       description:
-        "Learn about modern transport systems, sustainability, and how technology is transforming the way we move goods and people across the globe.",
-      rating: 4.6,
-      views: "15M+",
-      image: image.moneymaking, // Replace with the correct image
+        "Empower yourself with practical financial knowledge. From budgeting and saving strategies to understanding investments, this course covers essentials to manage money effectively.",
+      rating: 4.5,
+      views: "49M+",
+      image: image.moneymaking,
     },
-   
     {
       id: 5,
-      title: "Transport Systems 🚗",
+      title: "Money Matters 💸",
       description:
-        "Learn about modern transport systems, sustainability, and how technology is transforming the way we move goods and people across the globe.",
-      rating: 4.6,
-      views: "15M+",
-      image: image.moneymaking, // Replace with the correct image
+        "Empower yourself with practical financial knowledge. From budgeting and saving strategies to understanding investments, this course covers essentials to manage money effectively.",
+      rating: 4.5,
+      views: "49M+",
+      image: image.moneymaking,
     },
     {
       id: 6,
-      title: "Transport Systems 🚗",
+      title: "Money Matters 💸",
       description:
-        "Learn about modern transport systems, sustainability, and how technology is transforming the way we move goods and people across the globe.",
-      rating: 4.6,
-      views: "15M+",
-      image: image.moneymaking, // Replace with the correct image
+        "Empower yourself with practical financial knowledge. From budgeting and saving strategies to understanding investments, this course covers essentials to manage money effectively.",
+      rating: 4.5,
+      views: "49M+",
+      image: image.moneymaking,
+    },
+    {
+      id: 7,
+      title: "Money Matters 💸",
+      description:
+        "Empower yourself with practical financial knowledge. From budgeting and saving strategies to understanding investments, this course covers essentials to manage money effectively.",
+      rating: 4.5,
+      views: "49M+",
+      image: image.moneymaking,
+    },
+    {
+      id: 8,
+      title: "Money Matters 💸",
+      description:
+        "Empower yourself with practical financial knowledge. From budgeting and saving strategies to understanding investments, this course covers essentials to manage money effectively.",
+      rating: 4.5,
+      views: "49M+",
+      image: image.moneymaking,
+    },
+    {
+      id: 9,
+      title: "Money Matters 💸",
+      description:
+        "Empower yourself with practical financial knowledge. From budgeting and saving strategies to understanding investments, this course covers essentials to manage money effectively.",
+      rating: 4.5,
+      views: "49M+",
+      image: image.moneymaking,
     },
     // Add more course data here...
   ];
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 mt-8">
       {courses.map((course) => (
         <div
           key={course.id}
@@ -83,8 +109,17 @@ const TechTab = () => {
               {course.description}
             </p>
             <div className="flex items-center gap-4 text-gray-600 font-semibold text-md mt-2">
-              <p>{course.rating}</p>
-              <p>{course.views}</p>
+              <div className="flex items-center gap-1">
+                <img src={image.star_atom} />
+                 <p>{course.rating}</p>
+
+              </div>
+              
+              <div className="flex items-center gap-1">
+                <img src={image.cart} />
+                 <p>{course.views}</p>
+
+              </div>
             </div>
           </div>
         </div>

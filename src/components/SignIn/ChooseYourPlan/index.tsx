@@ -11,7 +11,7 @@ const ChooseYourPlan = () => {
                 <img src={image.signinlogo} className="w-36 m-4" onClick={() => navigate('/')} />
             </div>
 
-            <div className="flex justify-center items-center mt-10">
+            <div className="flex justify-center items-center mt-10 lg:mt-24">
                 {/* Pricing Cards */}
                 <div className="flex flex-col xl:flex-row gap-4">
 
@@ -33,6 +33,7 @@ const ChooseYourPlan = () => {
                         <div className="space-y-3 text-white">
                             <div className="flex items-center gap-2">
                                 <span className="text-gray-800">✔</span>
+                                
                                 <p className="text-gray-800">2,000 GB of encrypted content storage</p>
                             </div>
                             <div className="flex items-center gap-2">

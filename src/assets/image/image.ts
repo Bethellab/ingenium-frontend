@@ -57,7 +57,12 @@ import delete_icon from './delete.png'
 import movie_info from './movie_info.png'
 import circle_tick from './circle_tick.png'
 import progressbar from './progress80.png'
-
+import cart from './shopping_cart.png'
+import star_atom from './star_atom.png'
+import ring from './ring.png'
+import linkedinclr from './linkedinclr.png'
+import googleclr from './googleclr.png'
+import check_circle_dark from './check_circle_dark.png'
 
 export const image = {
    progressbar,
@@ -116,6 +121,12 @@ export const image = {
     delete_icon,
     add,
     drag_indicator,
-    movie_info
+    movie_info,
+    cart,
+    star_atom,
+    ring,
+    googleclr,
+    linkedinclr,
+    check_circle_dark
 
 }

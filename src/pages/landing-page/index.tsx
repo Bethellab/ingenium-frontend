@@ -18,7 +18,7 @@ import WhyChooseIngenium from "@/components/LandingPage/WhyChooseIngenium";
 function LandingPage() {
   return (
     <main className="bg-[#e3edf7]">
-      <div className="mx-4 sm:mx-[10%] ">
+      <div className=" ">
         <Navbar />
         <Header />
        
