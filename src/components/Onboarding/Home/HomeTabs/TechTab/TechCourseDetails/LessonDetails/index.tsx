@@ -238,12 +238,12 @@ function LessonDetails() {
         <div>
             {/* Breadcrumb */}
             <nav className="text-lg text-gray-600 px-10 border-b py-4">
-                <Link to="/onboarding/home" className="text-blue-500">
+                <Link to="/home" className="text-blue-500">
                     Learning
                 </Link>
                 <span className="mx-2">{'>'}</span>
                 <Link
-                    to={`/onboarding/course-details/${courseId}`}
+                    to={`/course-details/${courseId}`}
                     className="text-blue-500"
                 >
                     {course?.title || "Course Not Found"}
@@ -346,7 +346,7 @@ function LessonDetails() {
 
                                                         ))}
                                                         {chapter.hasQuiz && (
-                                                            <div onClick={() => navigate('/onboarding/home/quiz')} className="flex items-center gap-2 cursor-pointer">
+                                                            <div onClick={() => navigate('/home/quiz')} className="flex items-center gap-2 cursor-pointer">
                                                                 <div className="w-5 h-5 border-4 border-gray-500 rounded-full flex items-center justify-center cursor-pointer">
                                                                     <span className="w-3 h-3  rounded-full"></span>
                                                                 </div>

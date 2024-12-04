@@ -182,10 +182,10 @@ const AddNewAffiliate = () => {
 
                             {/* Buttons */}
                             <div className="flex items-center gap-4">
-                                <button onClick={() => navigate('/onboarding/affiliatelist')}  className=" px-2 w-32 bg-blue-600 text-white text-md font-medium py-2 rounded-md">
+                                <button onClick={() => navigate('/affiliatelist')}  className=" px-2 w-32 bg-blue-600 text-white text-md font-medium py-2 rounded-md">
                                     Add affiliate
                                 </button>
-                                <button onClick={() => navigate('/onboarding/affiliaties')} className="px-2 w-32 bg-white border border-black text-black text-md font-medium py-2 rounded-md">
+                                <button onClick={() => navigate('/affiliaties')} className="px-2 w-32 bg-white border border-black text-black text-md font-medium py-2 rounded-md">
                                     Cancel
                                 </button>
                             </div>

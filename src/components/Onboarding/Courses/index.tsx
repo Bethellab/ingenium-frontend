@@ -217,7 +217,7 @@ const Courses = () => {
                 <button
                   className="bg-primary text-white py-2 px-6 rounded-lg mt-4 w-96"
                   // onClick={handleReset}
-                  onClick={() => navigate('/onboarding/courses/analytics')}
+                  onClick={() => navigate('/courses/analytics')}
                 >
                  Let's Proceed
                 </button>

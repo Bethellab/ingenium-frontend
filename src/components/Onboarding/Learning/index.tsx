@@ -16,7 +16,7 @@ const Learning = () => {
             Share your expertise and inspire others by launching your very own course today.
           </span>
           <button
-           onClick={() => navigate('/onboarding/mylearning/learning')}
+           onClick={() => navigate('/mylearning/learning')}
             className="bg-primary text-center py-2 text-white rounded-xl w-96 mt-4"
            
           >

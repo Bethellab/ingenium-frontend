@@ -29,14 +29,14 @@ const Analytics = () => {
                         Courses
                     </Link>
                     <span className="mx-2">{'>'}</span>
-                    <Link to="/onboarding/home">
+                    <Link to="/home">
                         Money Matter
                     </Link>
                     <span className="mx-2">{'>'}</span>
                     <span className="font-semibold">Analytics</span>
                 </nav>
 
-                <button className="bg-primary p-2 text-white rounded-md" onClick={() => navigate('/onboarding/courses/uploadvideo')}>
+                <button className="bg-primary p-2 text-white rounded-md" onClick={() => navigate('/courses/uploadvideo')}>
                     Upload Video
                 </button>
 

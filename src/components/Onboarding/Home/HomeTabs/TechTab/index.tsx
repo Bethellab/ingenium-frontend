@@ -96,7 +96,7 @@ const TechTab = () => {
         <div
           key={course.id}
           className="border rounded-xl cursor-pointer hover:translate-y-[-10px] transition-all duration-500"
-          onClick={() => navigate(`/onboarding/course-details/${course.id}`)} // Navigate to course details
+          onClick={() => navigate(`/course-details/${course.id}`)} // Navigate to course details
         >
           <img
             className="w-full rounded-t-xl"

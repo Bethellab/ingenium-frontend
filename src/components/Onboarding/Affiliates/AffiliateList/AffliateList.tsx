@@ -28,7 +28,7 @@ const AffiliateList = () => {
                     <h2 className="text-md">Affiliates</h2>
 
                     <div>
-                        <button onClick={() => navigate('/onboarding/addnewaffiliate')} className="bg-primary text-white rounded-md px-2 py-2">Add new affiliaties</button>
+                        <button onClick={() => navigate('/addnewaffiliate')} className="bg-primary text-white rounded-md px-2 py-2">Add new affiliaties</button>
 
                     </div>
 

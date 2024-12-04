@@ -108,7 +108,7 @@ const TechCourseDetails = () => {
 
             {/* Breadcrumb */}
             <nav className="mb-4 text-lg text-gray-600 px-10">
-                <Link to="/onboarding/home" className="text-blue-500 ">
+                <Link to="/home" className="text-blue-500 ">
                     Learning
                 </Link>
                 <span className="mx-2 font-semibold text-lg">{'>'}</span>
@@ -160,7 +160,7 @@ const TechCourseDetails = () => {
                                                             {chapter.lessons.map((lesson) => (
                                                                 <li key={lesson.id} className="flex justify-between py-2">
                                                                     <Link
-                                                                        to={`/onboarding/home/course/${course.id}/lesson/${lesson.id}`}
+                                                                        to={`/home/course/${course.id}/lesson/${lesson.id}`}
                                                                         className="text-md"
                                                                     >
                                                                         {lesson.id}: {lesson.title}

@@ -34,26 +34,25 @@ const router = createBrowserRouter([
   { path: "/activate", element: <ActivateAccount /> },
   { path: "/chooseyourplan", element: <ChooseYourPlan /> },
   { path: "/useracceptinvitelink", element: <UserAcceptInviteLink /> },
+
+
+  
   {
-    path: "/onboarding",
+    
     element: <OnboardingLayout />,
     children: [
-      { path: "home", element: <Home /> },
-      { path: "/onboarding/course-details/:id", element: <TechCourseDetails /> },
-      { path: "/onboarding/home/course/:courseId/lesson/:lessonId", element: <LessonDetails /> },
-      { path: "courses", element: <Courses /> },
-      { path: "/onboarding/courses/analytics", element: <Analytics /> },
-      { path: "/onboarding/courses/uploadvideo", element: <UploadVideo /> },
-      { path: "mylearning", element: <Learning /> },
-      { path: "/onboarding/mylearning/learning", element: <LearningCourse /> },
-      { path: "affiliaties", element: <Affiliates/> },
-      { path: "/onboarding/addnewaffiliate", element: <AddNewAffiliate/> },
-      { path: "/onboarding/affiliatelist", element: <AffiliateList/> },
-      { path: "/onboarding/home/quiz", element: <Quiz/> },
-
-
-
-
+      { path: "/home", element: <Home /> },
+      { path: "/course-details/:id", element: <TechCourseDetails /> },
+      { path: "/home/course/:courseId/lesson/:lessonId", element: <LessonDetails /> },
+      { path: "/courses", element: <Courses /> },
+      { path: "/courses/analytics", element: <Analytics /> },
+      { path: "/courses/uploadvideo", element: <UploadVideo /> },
+      { path: "/mylearning", element: <Learning /> },
+      { path: "/mylearning/learning", element: <LearningCourse /> },
+      { path: "/affiliaties", element: <Affiliates/> },
+      { path: "/addnewaffiliate", element: <AddNewAffiliate/> },
+      { path: "/affiliatelist", element: <AffiliateList/> },
+      { path: "/home/quiz", element: <Quiz/> },
 
     ],
   },

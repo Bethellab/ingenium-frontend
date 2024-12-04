@@ -399,11 +399,11 @@ const Quiz = () => {
             <div>
                 {/* Breadcrumb */}
                 <nav className="text-lg text-gray-600 px-10 border-b py-4">
-                    <Link to="/onboarding/home" className="text-primary">
+                    <Link to="/home" className="text-primary">
                         Learning
                     </Link>
                     <span className="mx-2">{'>'}</span>
-                    <Link  to="/onboarding/home">
+                    <Link  to="/home">
                         Money Matters
                     </Link>
                     <span className="mx-2">{'>'}</span>

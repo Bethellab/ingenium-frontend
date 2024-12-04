@@ -17,7 +17,7 @@ const AffiliatesTab = () => {
                     </span>
                     <button
                         className="bg-primary text-center py-2 text-white rounded-xl lg:w-96 mt-4"
-                        onClick={() => navigate('/onboarding/addnewaffiliate')}
+                        onClick={() => navigate('/addnewaffiliate')}
                     >
                         Add new affiliate
                     </button>

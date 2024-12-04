@@ -118,7 +118,7 @@ const UploadVideo: React.FC = () => {
                         Courses
                     </Link>
                     <span className="mx-2">{'>'}</span>
-                    <Link to="/onboarding/home">
+                    <Link to="/home">
                         Money Matter
                     </Link>
                     <span className="mx-2">{'>'}</span>
