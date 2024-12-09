@@ -236,7 +236,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ userType }) => {
 
                                     {
                                         userType === 'individual' &&
-                                        <button onClick={() => navigate('/onboarding/home')} className="w-full mt-8 py-2 bg-primary text-white border border-gray-300 rounded-lg font-medium text-center">
+                                        <button onClick={() => navigate('/home')} className="w-full mt-8 py-2 bg-primary text-white border border-gray-300 rounded-lg font-medium text-center">
                                             Try for free for 30 days
                                         </button>
                                     }
@@ -293,7 +293,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ userType }) => {
 
                                     {userType === 'individual' && (
                                         <button
-                                            onClick={() => navigate('/onboarding/home')}
+                                            onClick={() => navigate('/home')}
                                             className="w-full mt-8 py-2 bg-primary text-white border border-gray-300 rounded-lg font-medium text-center"
                                         >
                                             Try for free for 30 days
@@ -345,7 +345,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ userType }) => {
 
                                     {
                                         userType === 'individual' &&
-                                        <button onClick={() => navigate('/onboarding/home')} className="w-full mt-8 py-2 bg-primary text-white border border-gray-300 rounded-lg font-medium text-center">
+                                        <button onClick={() => navigate('/home')} className="w-full mt-8 py-2 bg-primary text-white border border-gray-300 rounded-lg font-medium text-center">
                                             Try for free for 30 days
                                         </button>
                                     }
@@ -365,7 +365,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ userType }) => {
                         {
                             userType === 'individual' &&
                             <div className="flex justify-center items-center m-5 lg:m-10">
-                                <button onClick={() => navigate('/onboarding/home')} className="text-primary text-lg text-center">Skip for now</button>
+                                <button onClick={() => navigate('/home')} className="text-primary text-lg text-center">Skip for now</button>
                             </div>
                         }
 

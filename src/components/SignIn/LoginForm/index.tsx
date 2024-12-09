@@ -50,7 +50,7 @@ const LoginForm: React.FC<LoginFormProps> = () => {
                                 </span>
                             </div>
                         </div>
-                        <button onClick={() => navigate('/onboarding/home')} className="bg-primary text-center w-full py-2 text-white rounded-xl">Log In</button>
+                        <button onClick={() => navigate('/home')} className="bg-primary text-center w-full py-2 text-white rounded-xl">Log In</button>
                         <p className="text-center">Forgot Your Password? <span className="text-primary underline cursor-pointer" onClick={() => navigate('/forgotPassword')}>Click here</span></p>
 
                         {userType === 'business' && (

@@ -50,7 +50,7 @@ const UserAcceptInviteLink = () => {
             return;
         }
 
-        navigate('/onboarding/home')
+        navigate('/home')
 
         // Form submission logic goes here
     };

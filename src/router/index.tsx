@@ -24,6 +24,7 @@ import ForgotPasswordForm from "@/components/SignIn/ForgotPassword";
 
 
 
+
 const router = createBrowserRouter([
   { path: "/", element: <LandingPage /> },
   { path: "/signup/:userType", element: <SignupForm /> },
@@ -34,6 +35,7 @@ const router = createBrowserRouter([
   { path: "/activate", element: <ActivateAccount /> },
   { path: "/chooseyourplan", element: <ChooseYourPlan /> },
   { path: "/useracceptinvitelink", element: <UserAcceptInviteLink /> },
+  
 
 
   
@@ -57,6 +59,8 @@ const router = createBrowserRouter([
     ],
   },
 
+ 
+
 ]);
 
-export { router };
+export { router }; 
