@@ -47,26 +47,8 @@ import gift from './Gift.png'
 import videoimg from './videoimg.png'
 import progressicon from './progress-icon.png'
 import movie from './movie.png'
-import check_circle from './check_circle.png'
-import uploadvideobg from './vishal-bansal.png'
-
-import add from './add_2.png'
-
-import drag_indicator from './drag_indicator.png'
-import delete_icon from './delete.png'
-import movie_info from './movie_info.png'
-import circle_tick from './circle_tick.png'
-import progressbar from './progress80.png'
-import cart from './shopping_cart.png'
-import star_atom from './star_atom.png'
-import ring from './ring.png'
-import linkedinclr from './linkedinclr.png'
-import googleclr from './googleclr.png'
-import check_circle_dark from './check_circle_dark.png'
 
 export const image = {
-   progressbar,
-    circle_tick,
     ingenium_logo,
     menubar,
     crossbar,
@@ -115,18 +97,6 @@ export const image = {
     gift,
     videoimg,
     progressicon,
-    movie,
-    check_circle,
-    uploadvideobg,
-    delete_icon,
-    add,
-    drag_indicator,
-    movie_info,
-    cart,
-    star_atom,
-    ring,
-    googleclr,
-    linkedinclr,
-    check_circle_dark
+    movie
 
 }
