@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -11,11 +11,25 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 } */
 
-.filter {
-  filter: hue-rotate(180deg) saturate(200%);
-}
+
 ::-webkit-scrollbar {
   @apply hidden
 }
 
+.react-calendar .react-calendar__tile {
+  color: #4A4A4A !important;  /* Replace this color with your desired color */
+}
 
+/* Remove any background color for the selected date */
+.react-calendar .react-calendar__tile--active {
+  background-color: #5E25CC !important; /* Make the selected date background transparent */
+  color: white !important; /* Ensure the selected date has the same text color */
+}
+
+/* Remove any background color for the current date */
+.react-calendar .react-calendar__tile--now {
+  background-color: #5E25CC !important; /* Make the current date background transparent */
+  color: white !important;
+  border-radius: 100%;
+
+}
