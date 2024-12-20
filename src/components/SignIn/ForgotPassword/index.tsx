@@ -1,12 +1,17 @@
 
 import { image } from '@/assets/image/image';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 
 
 const ForgotPasswordForm = () => {
 
     const navigate = useNavigate()
+    
+    const location = useLocation();
+
+    // Determine context from query string or path
+    const isAdmin = new URLSearchParams(location.search).get('role') === 'admin';
 
     return (
         <div>
@@ -25,7 +30,15 @@ const ForgotPasswordForm = () => {
                             <input type="email" className="w-full border border-gray-300 py-2 px-2 rounded-xl" placeholder="Enter your email" />
                         </div>
                         <button className="bg-primary text-center w-full py-2 text-white rounded-xl">Send Reset Link</button>
-                        <p className="text-center">Remembered your password? <span className="text-primary underline cursor-pointer" onClick={() => navigate('/login')}>Log in</span></p>
+                        <p className="text-center">
+                            Remembered your password?{' '}
+                            <span
+                                className="text-primary underline cursor-pointer"
+                                onClick={() => navigate(isAdmin ? '/admin-login' : '/login')}
+                            >
+                                Log in
+                            </span>
+                        </p>
                     </div>
                 </div>
 
